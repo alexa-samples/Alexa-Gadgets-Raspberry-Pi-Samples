@@ -1,0 +1,45 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "color cycler",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.YesIntent",
+                  "samples": [
+                      "yes",
+                      "yes please",
+                      "sure"
+                  ]
+              },
+              {
+                  "name": "AMAZON.NoIntent",
+                  "samples": [
+                      "no",
+                      "no thanks"
+                  ]
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              }
+          ],
+          "types": []
+      }
+  }
+}

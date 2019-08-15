@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>agt &mdash; Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Color Cycler Gadget" href="colorcycler.html" />
+    <link rel="prev" title="Alexa Gadgets Python Projects" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Alexa-Gadgets-Raspberry-Pi-Samples
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Projects</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="colorcycler.html">Color Cycler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kitchensink.html">Kitchen Sink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wakeword.html">Wake Word</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>agt</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-agt">
+<span id="agt"></span><h1>agt<a class="headerlink" href="#module-agt" title="Permalink to this headline">¶</a></h1>
+<p>The Alexa Gadgets Python API allows you to build fun and delightful accessories
+that pair to compatible Echo devices via Bluetooth. These accessories can
+extend Alexa’s capabilities to new modalities with motors, lights, sound chips,
+and more.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">agt</span> <span class="kn">import</span> <span class="n">AlexaGadget</span>
+
+<span class="k">class</span> <span class="nc">MyFirstGadget</span><span class="p">(</span><span class="n">AlexaGadget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_alexa_gadget_statelistener_stateupdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;STATE UPDATED: &quot;</span><span class="p">,</span> <span class="n">directive</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">MyFirstGadget</span><span class="p">()</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="agt.AlexaGadget">
+<em class="property">class </em><code class="sig-prename descclassname">agt.</code><code class="sig-name descname">AlexaGadget</code><span class="sig-paren">(</span><em class="sig-param">gadget_config_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Alexa-connected accessory that interacts with an Amazon Echo device over Bluetooth.</p>
+<dl class="method">
+<dt id="agt.AlexaGadget.main">
+<code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main entry point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start gadget event loop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.is_paired">
+<code class="sig-name descname">is_paired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.is_paired"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.is_paired" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if this gadget has a Echo device BT address in config and bonded, false otherwise</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.is_connected">
+<code class="sig-name descname">is_connected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.is_connected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.is_connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if a Bluetooth connection to an Echo device is active, false otherwise</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.set_discoverable">
+<code class="sig-name descname">set_discoverable</code><span class="sig-paren">(</span><em class="sig-param">discoverable=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.set_discoverable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.set_discoverable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets whether or not an Echo device can discover and pair to this Gadget</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.reconnect">
+<code class="sig-name descname">reconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.reconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.reconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconnect to the paired Echo device.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.disconnect">
+<code class="sig-name descname">disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.disconnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnects, but does not un-pair, from the Echo device</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.send_custom_event">
+<code class="sig-name descname">send_custom_event</code><span class="sig-paren">(</span><em class="sig-param">namespace</em>, <em class="sig-param">name</em>, <em class="sig-param">payload</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.send_custom_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.send_custom_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a custom event to the skill</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>namespace</strong> – namespace of the custom event</p></li>
+<li><p><strong>name</strong> – name of the custom event</p></li>
+<li><p><strong>payload</strong> – JSON payload of the custom event</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.send_event">
+<code class="sig-name descname">send_event</code><span class="sig-paren">(</span><em class="sig-param">event</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.send_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.send_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an event to the Echo device</p>
+<p>Depending on your the capabilities your gadget supports, you may call
+this method with one of the following events:</p>
+<ul class="simple">
+<li><p>Alexa.Discovery.Discover.Response</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-discovery-interface.html#discover-response-event">DiscoverResponseEventProto.Event</a></p></li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.on_connected">
+<code class="sig-name descname">on_connected</code><span class="sig-paren">(</span><em class="sig-param">device_addr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.on_connected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.on_connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the Gadget connects to the paired Echo device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device_addr</strong> – the address of the device we connected to</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.on_disconnected">
+<code class="sig-name descname">on_disconnected</code><span class="sig-paren">(</span><em class="sig-param">device_addr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.on_disconnected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.on_disconnected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the Gadget disconnects from the paired Echo device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>device_addr</strong> – the address of the device we disconnected from</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="agt.AlexaGadget.on_directive">
+<code class="sig-name descname">on_directive</code><span class="sig-paren">(</span><em class="sig-param">directive</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.on_directive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.on_directive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the Gadget receives a directive from the connected Echo device.</p>
+<p>By default, this method will call the appropriate callback method if it is defined.</p>
+<p>Depending on your the capabilities your gadget supports, this method may be called
+with for the following directives:</p>
+<ul class="simple">
+<li><p>Alexa.Gadget.StateListener.StateUpdate</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-statelistener-interface.html#StateUpdate-directive">StateUpdateDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_alexa_gadget_statelistener_stateupdate(directive)</span></code></p></li>
+</ul>
+</li>
+<li><p>Notifications.SetIndicator</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/notifications-interface.html#SetIndicator-directive">SetIndicatorDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_notifications_setindicator(directive)</span></code></p></li>
+</ul>
+</li>
+<li><p>Notifications.ClearIndicator</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/notifications-interface.html#ClearIndicator-directive">ClearIndicatorDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_notifications_clearindicator(directive)</span></code></p></li>
+</ul>
+</li>
+<li><p>Alexa.Gadget.SpeechData.Speechmarks</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-speechdata-interface.html#Speechmarks-directive">SpeechmarksDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_alexa_gadget_speechdata_speechmarks(directive)</span></code></p></li>
+</ul>
+</li>
+<li><p>Alexa.Gadget.MusicData.Tempo</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-musicdata-interface.html#Tempo-directive">TempoDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_alexa_gadget_musicdata_tempo(directive)</span></code></p></li>
+</ul>
+</li>
+<li><p>Alerts.SetAlert</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alerts-interface.html#SetAlert-directive">SetAlertDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_alerts_setalert(directive)</span></code></p></li>
+</ul>
+</li>
+<li><p>Alerts.DeleteAlert</p>
+<ul>
+<li><p>param: <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alerts-interface.html#DeleteAlert-directive">DeleteAlertDirectiveProto.Directive</a></p></li>
+<li><p>callback: <code class="docutils literal notranslate"><span class="pre">on_alerts_deletealert(directive)</span></code></p></li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="colorcycler.html" class="btn btn-neutral float-right" title="Color Cycler Gadget" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Alexa Gadgets Python Projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, alexa gadgets team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
