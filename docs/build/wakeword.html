@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Wake Word LED Gadget Example &mdash; Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Notification Flag Gadget" href="notification.html" />
+    <link rel="prev" title="Kitchen Sink Gadget Example" href="kitchensink.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Alexa-Gadgets-Raspberry-Pi-Samples
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="colorcycler.html">Color Cycler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kitchensink.html">Kitchen Sink</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Wake Word</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-connect-the-led-to-your-pi">Step 1: Connect the LED to your Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-configure-your-credentials">Step 2: Configure your credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-explore-the-example">Step 3: Explore the example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-test-your-gadget">Step 4: Test your gadget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Wake Word LED Gadget Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wake-word-led-gadget-example">
+<h1>Wake Word LED Gadget Example<a class="headerlink" href="#wake-word-led-gadget-example" title="Permalink to this headline">¶</a></h1>
+<p><strong>This guide steps through the process of creating an Alexa Gadget that turns an LED on and off in sync with the detection of the wake word.</strong></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="_static/images/pi_led_hardware.png"><img alt="LED to Raspberry Pi Diagram" src="_images/pi_led_hardware.png" /></a>
+<p>In order to to run this example <strong>you should already have</strong> a Raspberry Pi with the Alexa-Gadgets-Raspberry-Pi-Samples software installed. Learn more in the <a class="reference external" href="overview.html">project README</a>. In addition, you will need the following hardware:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.amazon.com/DIKAVS-Break-Away-2x20-pin-Header-Raspberry/dp/B075VNBD3R">Header pins</a> soldered to your Raspberry Pi (used for connecting hardware)</p></li>
+<li><p><a class="reference external" href="https://thepihut.com/products/raspberry-pi-breadboard-half-size">Breadboard</a></p></li>
+<li><p><a class="reference external" href="https://thepihut.com/products/ultimate-5mm-led-kit">LED</a></p></li>
+<li><p><a class="reference external" href="https://thepihut.com/products/ultimate-resistor-kit">330 ohm resistor</a></p></li>
+<li><p>Two male-female <a class="reference external" href="https://www.amazon.com/LANDZO-Multicolored-Breadboard-Raspberry-Arduino/dp/B01IB7UOFE/">jumper wires</a></p></li>
+</ul>
+</div>
+<div class="section" id="step-1-connect-the-led-to-your-pi">
+<h2>Step 1: Connect the LED to your Pi<a class="headerlink" href="#step-1-connect-the-led-to-your-pi" title="Permalink to this headline">¶</a></h2>
+<p>The circuit consists of a power supply (the Raspberry Pi), an LED that lights up when the power is applied, and a resistor to limit the current that can flow through the circuit.</p>
+<p>You will be using one of the ‘ground’ (GND) pins to act like the ‘negative’ or zero-volt end of a battery. The ‘positive’ end of the battery will be provided by a GPIO pin. Here we will use pin 14. When the pin is ‘taken high’, which means that it outputs 3.3 volts, the LED will light up. Now take a look at the circuit diagram below. <a class="reference external" href="https://www.raspberrypi.org/documentation/usage/gpio/">Learn more</a> about pin locations.</p>
+<a class="reference external image-reference" href="_static/images/led_to_rpi.png"><img alt="LED to Raspberry Pi Diagram" src="_images/led_to_rpi.png" /></a>
+<p>You should turn your Raspberry Pi OFF for the next bit, just in case you accidentally short something out.</p>
+<ol class="arabic simple">
+<li><p>Use one of the jumper wires to connect a ground pin to the rail, marked with blue, on the breadboard. The female end goes on the Raspberry Pi’s pin, and the male end goes into a hole on the breadboard.</p></li>
+<li><p>Connect the resistor from the same row on the breadboard to a column on the breadboard, as shown above.</p></li>
+<li><p>Push the LED’s legs into the breadboard, with the long leg (with the kink) on the right.</p></li>
+<li><p>Complete the circuit by connecting pin 14 to the right-hand leg of the LED. This is the orange wire shown above.</p></li>
+<li><p>Once everything is connected, start up your Pi.</p></li>
+</ol>
+</div>
+<div class="section" id="step-2-configure-your-credentials">
+<h2>Step 2: Configure your credentials<a class="headerlink" href="#step-2-configure-your-credentials" title="Permalink to this headline">¶</a></h2>
+<p>Now that the LED is connected to your Pi, you can continue on with the example.</p>
+<p>As with any example, you’ll need to first add the credentials that are associated with the gadget you created in the <a class="reference external" href="https://developer.amazon.com/avs/home.html#/avs/home">Alexa Voice Service Developer Console</a>:</p>
+<ol class="arabic simple">
+<li><p>On the command line of your Pi, navigate to <code class="docutils literal notranslate"><span class="pre">/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/wakeword</span></code> and open the <code class="docutils literal notranslate"><span class="pre">wakeword_gadget.ini</span></code> file within that folder.</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">amazonId</span></code> from <code class="docutils literal notranslate"><span class="pre">YOUR_GADGET_AMAZON_ID</span></code> to the <strong>Amazon ID</strong> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">alexaGadgetSecret</span></code> from <code class="docutils literal notranslate"><span class="pre">YOUR_GADGET_SECRET</span></code> to the <strong>Alexa Gadget Secret</strong> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p></li>
+</ol>
+<p>To learn more, refer to <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/register-gadget.html">Register a Gadget</a> in the Alexa Gadgets Toolkit documentation.</p>
+</div>
+<div class="section" id="step-3-explore-the-example">
+<h2>Step 3: Explore the example<a class="headerlink" href="#step-3-explore-the-example" title="Permalink to this headline">¶</a></h2>
+<p>The example follows the same model as other examples that you can browse within the Alexa-Gadgets-Raspberry-Pi-Samples project.</p>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">wakeword_gadget.ini</span></code> file, in addition to the credentials you just modified, you will see a group of <code class="docutils literal notranslate"><span class="pre">[GadgetCapabilities]</span></code> that this gadget is registering for. In this case, it is registering for <code class="docutils literal notranslate"><span class="pre">StateListener</span></code>:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">GadgetCapabilities</span><span class="p">]</span>
+<span class="n">Alexa</span><span class="p">.</span><span class="n">Gadget</span><span class="p">.</span><span class="n">StateListener</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">wakeword</span>
+</pre></div>
+</div>
+<p>In this example, you will be using version 1.0 of the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-statelistener-interface.html">StateListener interface</a>, and responding to the wake word type.</p>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>Within <code class="docutils literal notranslate"><span class="pre">wakeword_gadget.py</span></code> you’ll notice the import and use of Raspberry Pi’s GPIO capabilities using the <a class="reference external" href="https://gpiozero.readthedocs.io">gpiozero</a> library:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gpiozero</span> <span class="kn">import</span> <span class="n">LED</span>
+</pre></div>
+</div>
+<p>You’ll also see the configuration of the LED:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LED</span> <span class="o">=</span> <span class="n">LED</span><span class="p">(</span><span class="n">GPIO_PIN</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition to callbacks for connectivity, you’ll see a <code class="docutils literal notranslate"><span class="pre">StateListener</span></code> callback that can be used to control the LED:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_alexa_gadget_statelistener_stateupdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">directive</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">states</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;wakeword&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;active&#39;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Wake word active - turn on LED&#39;</span><span class="p">)</span>
+                <span class="n">LED</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">state</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;cleared&#39;</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Wake word cleared - turn off LED&#39;</span><span class="p">)</span>
+                <span class="n">LED</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The above callback is listening for the wake word states of active and cleared to control the LED to turn on and off.</p>
+</div>
+</div>
+<div class="section" id="step-4-test-your-gadget">
+<h2>Step 4: Test your gadget<a class="headerlink" href="#step-4-test-your-gadget" title="Permalink to this headline">¶</a></h2>
+<p>In order for this gadget to function, it will need to be paired to a <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/understand-alexa-gadgets-toolkit.html#devices">compatible Echo device</a>. Before running the example, refer to the <a class="reference external" href="overview.html#pairing-your-gadget-to-an-echo-device">pairing guide</a> to learn how to pair your gadget.</p>
+<p>With your Echo device nearby, run the Python code:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">wakeword_gadget</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Once your gadget paired/connected, try the following commands:</p>
+<p><em>“Alexa, what time is it?”</em></p>
+<p>On the Pi, you should see <code class="docutils literal notranslate"><span class="pre">LED</span> <span class="pre">on</span></code> and <code class="docutils literal notranslate"><span class="pre">LED</span> <span class="pre">off</span></code> print alongside the gadget messages, and the LED should turn on and off in sync with the wake word detection, in this case, when you say Alexa.</p>
+<p><strong>Note:</strong> If you’ve set your Echo device to respond to a different wake word, e.g. Amazon, Computer, Echo, you should still see the wake word detection occur. You will just need to use the wake word of the Echo device that you’ve configured to test this and other examples.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>Now that you can control an LED, you could tie it to a <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-statelistener-interface.html">timer</a>, <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-speechdata-interface.html">speech data</a>, etc. You can also explore other ways to use GPIO library, or hardware and Python libraries that work with Raspberry Pi.</p>
+<p>To learn more about Alexa Gadgets Toolkit capabilities, <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/features.html">review the documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="notification.html" class="btn btn-neutral float-right" title="Notification Flag Gadget" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kitchensink.html" class="btn btn-neutral float-left" title="Kitchen Sink Gadget Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, alexa gadgets team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

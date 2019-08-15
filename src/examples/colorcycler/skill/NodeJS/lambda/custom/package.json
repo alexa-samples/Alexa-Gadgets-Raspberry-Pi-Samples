@@ -1,0 +1,21 @@
+{
+  "name": "colorcycler",
+  "version": "1.0.0",
+  "description": "Color cycler skill for demonstrating Custom Interfaces",
+  "main": "index.js",
+  "dependencies": {
+    "ask-sdk-core": "^2.0.3",
+    "ask-sdk-model": "^1.3.0",
+    "request": "^2.81.0",
+    "uuid": "^3.3.2"
+  },
+  "keywords": [
+    "alexa",
+    "skill"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amazon.com",
+  "license": "ADSL"
+}

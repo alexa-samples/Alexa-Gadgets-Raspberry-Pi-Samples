@@ -1,0 +1,188 @@
+syntax = "proto3";
+
+import "google/protobuf/descriptor.proto";
+
+package agt;
+
+extend google.protobuf.MessageOptions {
+  string namespace = 1551542;
+}
+
+message Message {
+  bytes payload = 1;
+}
+
+message Directive {
+  Header header = 1;
+  bytes payload = 2;
+  message Header {
+    string namespace = 1;
+    string name = 2;
+    string messageId = 3;
+    string dialogRequestId = 4;
+  }
+}
+
+message Event {
+  Header header = 1;
+  bytes payload = 2;
+  message Header {
+    string namespace = 1;
+    string name = 2;
+    string messageId = 3;
+  }
+}
+
+message StateUpdateDirective {
+  option (namespace) = "Alexa.Gadget.StateListener";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    repeated States states = 1;
+    message States {
+      string name = 1;
+      string value = 2;
+    }
+  }
+  
+}
+
+message SetAlertDirective {
+  option (namespace) = "Alerts";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    repeated string assetPlayOrder = 5;
+    int32 loopPauseInMilliSeconds = 8;
+    string scheduledTime = 3;
+    repeated Assets assets = 4;
+    message Assets {
+      string assetId = 1;
+      string url = 2;
+    }
+    int32 loopCount = 7;
+    string backgroundAlertAsset = 6;
+    string type = 2;
+    string token = 1;
+  }
+  
+}
+
+message DeleteAlertDirective {
+  option (namespace) = "Alerts";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    string token = 1;
+  }
+  
+}
+
+message SpeechmarksDirective {
+  option (namespace) = "Alexa.Gadget.SpeechData";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    repeated SpeechmarksData speechmarksData = 2;
+    message SpeechmarksData {
+      int32 startOffsetInMilliSeconds = 3;
+      string type = 2;
+      string value = 1;
+    }
+    int32 playerOffsetInMilliSeconds = 1;
+  }
+  
+}
+
+message ClearIndicatorDirective {
+  option (namespace) = "Notifications";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+  }
+  
+}
+
+message SetIndicatorDirective {
+  option (namespace) = "Notifications";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    bool persistVisualIndicator = 1;
+    bool playAudioIndicator = 2;
+    Asset asset = 3;
+    message Asset {
+      string assetId = 1;
+      string url = 2;
+    }
+  }
+  
+}
+
+message TempoDirective {
+  option (namespace) = "Alexa.Gadget.MusicData";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    int32 playerOffsetInMilliSeconds = 1;
+    repeated TempoData tempoData = 2;
+    message TempoData {
+      int32 startOffsetInMilliSeconds = 2;
+      int32 value = 1;
+    }
+  }
+  
+}
+
+message DiscoverDirective {
+  option (namespace) = "Alexa.Discovery";
+  Directive.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    Scope scope = 1;
+    message Scope {
+      string type = 1;
+      string token = 2;
+    }
+  }
+  
+}
+
+message DiscoverResponseEvent {
+  option (namespace) = "Alexa.Discovery";
+  Event.Header header = 1;
+  Payload payload = 2;
+  message Payload {
+    repeated Endpoints endpoints = 1;
+    message Endpoints {
+      repeated Capabilities capabilities = 11;
+      message Capabilities {
+        Configuration configuration = 4;
+        message Configuration {
+          repeated SupportedTypes supportedTypes = 1;
+          message SupportedTypes {
+            string name = 1;
+          }
+        }
+        string type = 1;
+        string interface = 2;
+        string version = 3;
+      }
+      AdditionalIdentification additionalIdentification = 12;
+      message AdditionalIdentification {
+        string modelName = 5;
+        string deviceTokenEncryptionType = 3;
+        string firmwareVersion = 1;
+        string amazonDeviceType = 4;
+        string radioAddress = 6;
+        string deviceToken = 2;
+      }
+      string endpointId = 1;
+      string manufacturerName = 4;
+      string description = 3;
+      string friendlyName = 2;
+    }
+  }
+  
+}
+
