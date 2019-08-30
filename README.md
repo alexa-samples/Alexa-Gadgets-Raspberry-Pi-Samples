@@ -150,7 +150,7 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 ```python
 class KitchenSinkGadget(AlexaGadget):
     def __init__(self):
-        super().__init__(gadget_config_path='path/to/config.ini'))
+        super().__init__(gadget_config_path='path/to/config.ini')
         ...
 ```
 
