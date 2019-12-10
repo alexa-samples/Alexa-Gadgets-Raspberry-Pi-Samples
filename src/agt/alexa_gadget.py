@@ -21,7 +21,8 @@ from threading import Thread
 from google.protobuf import json_format
 
 import agt.messages_pb2 as proto
-from agt.bluetooth import BluetoothAdapter
+from agt.bt_classic.adapter import BluetoothAdapter
+from agt.ble.adapter import BluetoothLEAdapter
 
 global_config_path = path.join(path.join(path.dirname(path.dirname(path.abspath(__file__)))), '.agt.json')
 logger = logging.getLogger(__name__)
@@ -29,6 +30,7 @@ logger = logging.getLogger(__name__)
 # ------------------------------------------------
 # Global Gadget Configuration constants
 _ECHO_BLUETOOTH_ADDRESS = 'echoBluetoothAddress'
+_TRANSPORT_MODE =  'transportMode'
 # ------------------------------------------------
 
 # ------------------------------------------------
@@ -56,20 +58,22 @@ _DEFAULT_FIRMWARE_VERSION = '1'
 _DEFAULT_MANUFACTURER_NAME = 'AGT'
 _DEFAULT_DESCRIPTION = 'Alexa Gadget'
 
-
+# Transport modes
+BLE = "BLE"
+BT = "BT"
 # ------------------------------------------------
 
 
 class AlexaGadget:
     """
-    An Alexa-connected accessory that interacts with an Amazon Echo device over Bluetooth.
+    An Alexa-connected accessory that interacts with an Amazon Echo device over Classic Bluetooth or Bluetooth Low Energy.
     """
 
     def __init__(self, gadget_config_path=None):
         """
         Initialize gadget.
 
-        :param gadget_config_path: (Optional) Path to your Alexa Gadget Configution .ini file. If you don't pass this in
+        :param gadget_config_path: (Optional) Path to your Alexa Gadget Configuration .ini file. If you don't pass this in
         then make sure you have created a file with the same prefix as your .py file and '.ini' as the suffix.
         """
 
@@ -81,14 +85,32 @@ class AlexaGadget:
         self._read_peer_device_bt_address()
 
         # Get the radio address
-        self.radio_address = BluetoothAdapter.get_address()
+        self._read_transport_mode()
+        if self._transport_mode == BT:
+            self.radio_address = BluetoothAdapter.get_address()
+        elif self._transport_mode == BLE:
+            self.radio_address = BluetoothLEAdapter.get_address()
+        else:
+            raise Exception('Invalid transport mode found in the config.'
+                            'Please run the launch.py script with the --setup flag again '
+                            'to re-configure the transport mode.')
 
         # Check to make sure deviceType (amazonId) and deviceTypeSecret (alexaGadgetSecret) have been configured
         self.device_type = self._get_value_from_config(_GADGET_SETTINGS, _AMAZON_ID)
+        if not self.device_type:
+            # if 'amazonId' is not specified, check for presence of 'deviceType' instead
+            self.device_type = self._get_value_from_config(_GADGET_SETTINGS, 'deviceType')
+            if self.device_type:
+                logger.info('Using deprecated deviceType in configuration. Please update your .ini to use ' + _AMAZON_ID)
         if not self.device_type or self.device_type == 'YOUR_GADGET_AMAZON_ID':
             raise Exception('Please specify your ' + _AMAZON_ID + ' in ' + self.gadget_config_path)
 
         self.device_type_secret = self._get_value_from_config(_GADGET_SETTINGS, _ALEXA_GADGET_SECRET)
+        if not self.device_type_secret:
+            # if 'alexaGadgetSecret' is not specified, check for presence of 'deviceTypeSecret' instead 
+            self.device_type_secret = self._get_value_from_config(_GADGET_SETTINGS, 'deviceTypeSecret')
+            if self.device_type_secret:
+                logger.info('Using deprecated deviceTypeSecret in configuration. Please update your .ini to use ' + _ALEXA_GADGET_SECRET)
         if not self.device_type_secret or self.device_type_secret == 'YOUR_GADGET_SECRET':
             raise Exception('Please specify your ' + _ALEXA_GADGET_SECRET + ' in ' + self.gadget_config_path)
 
@@ -114,14 +136,25 @@ class AlexaGadget:
         if not product_id:
             product_id = _DEFAULT_VENDOR_ID
 
-        # Initialize the BluetoothAdapter object
-        self._bluetooth = BluetoothAdapter(self.friendly_name, vendor_id, product_id,
-                                       self._on_bluetooth_data_received,
-                                       self._on_bluetooth_connected,
-                                       self._on_bluetooth_disconnected)
+        # Initialize the Transport Adapter object
+        if self._transport_mode == BT:
+            self._bluetooth = BluetoothAdapter(self.friendly_name, vendor_id, product_id,
+                                                      self._on_bluetooth_data_received,
+                                                      self._on_bluetooth_connected,
+                                                      self._on_bluetooth_disconnected)
+        elif self._transport_mode == BLE:
+            self._bluetooth = BluetoothLEAdapter(self.endpoint_id, self.friendly_name, self.device_type,
+                                                 vendor_id, product_id, self._on_bluetooth_data_received,
+                                                 self._on_bluetooth_connected,
+                                                 self._on_bluetooth_disconnected)
 
         # enable auto reconnect, by default
         self._reconnect_status = (0, time.time())
+
+        # flag for ensuring keyboard interrupt is only handled once
+        self._keyboard_interrupt_being_handled = False
+        # register an interrupt handler to catch 'CTRL + C'
+        signal.signal(signal.SIGINT, self._keyboard_interrupt_handler)
 
     def main(self):
         """
@@ -143,13 +176,17 @@ class AlexaGadget:
         if args.clear:
             # in addition to this, also unpair using bt adapter
             if self._peer_device_bt_addr is not None:
-                self._bluetooth.unpair(self._peer_device_bt_addr)
+                try:
+                    self._bluetooth.unpair(self._peer_device_bt_addr)
+                except Exception:
+                    pass
                 # delete peer address in memory
                 self._peer_device_bt_addr = None
                 # delete peer address in config file
                 self._write_peer_device_bt_address()
 
-            logger.info('Successfully unpaired with Echo device.' +
+            logger.info('Successfully unpaired with Echo device over {}.'
+                        .format(self._transport_mode) +
             ' Please also forget the gadget from the Echo device using the Bluetooth menu in Alexa App or Echo\'s screen.')
             if not args.pair:
                 logger.info('To put the gadget in pairing mode again, use --pair')
@@ -167,17 +204,12 @@ class AlexaGadget:
             # Set discoverable if bluetooth address is not in the configuration file.
             if not self.is_paired():
                 self.set_discoverable(True)
-                logger.info('Now in pairing mode. Pair "' + self.friendly_name + '" in the Alexa App.')
+                logger.info('Now in pairing mode over {}. Pair {} in the Alexa App.'
+                            .format(self._transport_mode, self.friendly_name))
 
-            # wait for the ctrl-c
-            try:
-                # current BT implementation requires event loop on mainthread
-                # if event loop no longer required, block on signal.pause()
-                self._bluetooth.run()
-            except KeyboardInterrupt:
-                # if we are in pairing mode, we should exit
-                self._bluetooth.set_discoverable(False)
-                logger.info('Caught keyboard interrupt, exiting main()')
+            # current BT implementation requires event loop on mainthread
+            # if event loop no longer required, block on signal.pause()
+            self._bluetooth.run()
 
     def start(self):
         """
@@ -420,7 +452,8 @@ class AlexaGadget:
                 rs = self._reconnect_status
                 if rs[1] and time.time() > rs[1]:
                     logger.info(
-                        'Attempting to reconnect to Echo device with address: {}'.format(self._peer_device_bt_addr))
+                        'Attempting to reconnect to Echo device with address {} over {}'
+                        .format(self._peer_device_bt_addr, self._transport_mode))
                     self._bluetooth.reconnect(self._peer_device_bt_addr)
                     if rs[0] < 30:
                         self._reconnect_status = (rs[0] + 1, time.time() + 10)
@@ -434,7 +467,8 @@ class AlexaGadget:
         """
         Bluetooth connected.
         """
-        logger.info('Connected to Echo device with address: {}'.format(bt_addr))
+        logger.info('Connected to Echo device with address {} over {}'
+                    .format(bt_addr, self._transport_mode))
 
         # Turn off pairing mode if it was enabled.
         self.set_discoverable(False)
@@ -457,7 +491,8 @@ class AlexaGadget:
         """
         Bluetooth disconnected.
         """
-        logger.info('Disconnected from Echo device with address: {}'.format(bt_addr))
+        logger.info('Disconnected from Echo device with address {} over {}'
+                    .format(bt_addr, self._transport_mode))
 
         # call the callback.
         try:
@@ -531,6 +566,18 @@ class AlexaGadget:
             return self.gadget_config.get(section, option)
         return None
 
+    def _read_transport_mode(self):
+        """
+        Reads the transport mode with which gadget is configured
+        """
+        try:
+            with open(global_config_path, "r") as read_file:
+                data = json.load(read_file)
+                self._transport_mode = data.get(_TRANSPORT_MODE, None)
+        except:
+            raise Exception('Transport mode is not configured for the gadget.'
+                            'Please run the launch.py script with the --setup flag.')
+
     def _read_peer_device_bt_address(self):
         """
         Reads the bluetooth address of the paired Echo device from disk
@@ -546,8 +593,10 @@ class AlexaGadget:
         """
         Writes the bluetooth address of the paired Echo device to disk
         """
-        data = {_ECHO_BLUETOOTH_ADDRESS: self._peer_device_bt_addr}
-        with open(global_config_path, "w") as write_file:
+        with open(global_config_path, "r") as read_file:
+            data = json.load(read_file)
+        with open(global_config_path, "w+") as write_file:
+            data[_ECHO_BLUETOOTH_ADDRESS] = self._peer_device_bt_addr
             json.dump(data, write_file)
 
     def _generate_token(self, device_id, device_token):
@@ -557,3 +606,9 @@ class AlexaGadget:
         hash_object = hashlib.sha256(bytes(device_id, 'utf-8') + bytes(device_token, 'utf-8'))
         hex_dig = hash_object.hexdigest()
         return bytes(hex_dig, 'utf-8')
+
+    def _keyboard_interrupt_handler(self, signal, frame):
+        if not self._keyboard_interrupt_being_handled:
+            self._keyboard_interrupt_being_handled = True
+            self._bluetooth.set_discoverable(False)
+            self._bluetooth.stop_server()

@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kitchen Sink Gadget Example &mdash; Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Wake Word LED Gadget Example" href="wakeword.html"/>
+        <link rel="prev" title="Color Cycler Gadget" href="color_cycler.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Alexa-Gadgets-Raspberry-Pi-Samples
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="color_cycler.html">Color Cycler</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kitchen Sink</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-configure-your-credentials">Step 1: Configure your credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-run-the-example">Step 2: Run the example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-this-work">How does this work?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wakeword.html">Wake Word</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Kitchen Sink Gadget Example</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kitchen-sink-gadget-example">
+<h1>Kitchen Sink Gadget Example<a class="headerlink" href="#kitchen-sink-gadget-example" title="Permalink to this headline">¶</a></h1>
+<p><strong>This guide steps through the process of creating an Alexa Gadget that prints messages to the command line based on directives received from a paired Echo device.</strong></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>In order to to run this example <strong>you should already have</strong> a Raspberry Pi with the <strong>Alexa-Gadgets-Raspberry-Pi-Samples software</strong> installed. Learn more in the <a class="reference external" href="overview.html">project README</a>.</p>
+</div>
+<div class="section" id="step-1-configure-your-credentials">
+<h2>Step 1: Configure your credentials<a class="headerlink" href="#step-1-configure-your-credentials" title="Permalink to this headline">¶</a></h2>
+<p>As with any example, you’ll need to first add the credentials that are associated with the gadget you created in the <a class="reference external" href="https://developer.amazon.com/avs/home.html#/avs/home">Alexa Voice Service Developer Console</a>:</p>
+<ol class="arabic simple">
+<li><p>On the command line of your Pi, navigate to <code class="docutils literal notranslate"><span class="pre">/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/kitchen_sink</span></code></p></li>
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">kitchen_sink.ini</span></code> file within that folder.</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">amazonId</span></code> from <code class="docutils literal notranslate"><span class="pre">YOUR_GADGET_AMAZON_ID</span></code> to the <strong>Amazon ID</strong> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">alexaGadgetSecret</span></code> from <code class="docutils literal notranslate"><span class="pre">YOUR_GADGET_SECRET</span></code> to the <strong>Alexa Gadget Secret</strong> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p></li>
+</ol>
+<p>You can also use the launch script’s setup mode to configure all the credentials for all the examples at once as follows:</p>
+<ul>
+<li><p>Start the launch script in setup mode</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">setup</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enter <em>‘y’</em> when prompted for configuring the gadget credentials; and enter the <code class="docutils literal notranslate"><span class="pre">amazonId</span></code> and <code class="docutils literal notranslate"><span class="pre">alexaGadgetSecret</span></code> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_1.png"><img alt="Pi CLI Screenshot 1" src="_images/pi_cli_screenshot_1.png" /></a>
+</li>
+</ul>
+<p>To learn more, refer to <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/register-gadget.html">Register a Gadget</a> in the Alexa Gadgets Toolkit documentation.</p>
+</div>
+<div class="section" id="step-2-run-the-example">
+<h2>Step 2: Run the example<a class="headerlink" href="#step-2-run-the-example" title="Permalink to this headline">¶</a></h2>
+<p>In order for this gadget to function, it will need to be paired to a <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#device-bluetooth-support">compatible Echo device</a>. Before running the example, refer to the <a class="reference external" href="overview.html">pairing guide</a> to learn how to pair your gadget.</p>
+<p>With your Echo device nearby, run the launch script with the <code class="docutils literal notranslate"><span class="pre">--example</span></code> argument and specify <em>‘kitchen_sink’</em> as the example name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">example</span> <span class="n">kitchen_sink</span>
+</pre></div>
+</div>
+<p>If your gadget has not paired before, your gadget will automatically attempt to pair.</p>
+<p>Once paired, try the following commands:</p>
+<p><em>“Alexa, set a timer for 10 seconds”</em></p>
+<p><em>“Alexa, play music”</em></p>
+<p><em>“Alexa, ask `Quote Maker &lt;https://developer.amazon.com/docs/alexa-voice-service/notifications-overview.html#enable-the-quote-maker-skill-for-testing&gt;`_ to send a notification”</em></p>
+<p>For each of these commands, you will see a directive logged to the command line. For example, when a timer is set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;TIMER&#39;</span><span class="p">,</span> <span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="s1">&#39;853514641&#39;</span><span class="p">,</span> <span class="s1">&#39;scheduledTime&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-03-25T14:44:51-07:00&#39;</span><span class="p">},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alerts&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SetAlert&#39;</span><span class="p">}}</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>You will also see directives when:</p>
+<ul class="simple">
+<li><p>The wake word is spoken</p></li>
+<li><p>When Alexa is speaking (visemes)</p></li>
+<li><p>When a timesync event takes place</p></li>
+</ul>
+<p>For example, when the wake word is detected:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;wakeword&#39;</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.StateListener&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;StateUpdate&#39;</span><span class="p">}}</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Now that you can see these directives, you can modify the code within the callbacks defined in the Python code. You can learn more about these callbacks in the <a class="reference external" href="overview.html">project README</a>.</p>
+</div>
+<div class="section" id="how-does-this-work">
+<h2>How does this work?<a class="headerlink" href="#how-does-this-work" title="Permalink to this headline">¶</a></h2>
+<p>This example follows the same model called out in <a class="reference external" href="overview.html">project README</a>. The configuration, and callbacks within the Python code, define how this gadget should work.</p>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">kitchen_sink.ini</span></code> file, you will see the <code class="docutils literal notranslate"><span class="pre">Amazon</span> <span class="pre">ID</span></code> and <code class="docutils literal notranslate"><span class="pre">Alexa</span> <span class="pre">Gadget</span> <span class="pre">Secret</span></code> defined, as well as the capabilities that the gadget is set to respond to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">GadgetSettings</span><span class="p">]</span>
+<span class="n">amazonId</span> <span class="o">=</span> <span class="n">YOUR_GADGET_AMAZON_ID</span>
+<span class="n">alexaGadgetSecret</span> <span class="o">=</span> <span class="n">YOUR_GADGET_SECRET</span>
+
+<span class="p">[</span><span class="n">GadgetCapabilities</span><span class="p">]</span>
+<span class="n">Alexa</span><span class="o">.</span><span class="n">Gadget</span><span class="o">.</span><span class="n">StateListener</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">timeinfo</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">alarms</span><span class="p">,</span> <span class="n">reminders</span><span class="p">,</span> <span class="n">wakeword</span>
+<span class="n">Alerts</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">Notifications</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Alexa</span><span class="o">.</span><span class="n">Gadget</span><span class="o">.</span><span class="n">MusicData</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">tempo</span>
+<span class="n">Alexa</span><span class="o">.</span><span class="n">Gadget</span><span class="o">.</span><span class="n">SpeechData</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">viseme</span>
+</pre></div>
+</div>
+<p>The Kitchen Sink example responds to all the Alexa Gadget Toolkit capabilities that are available, which you can see listed. You can learn more about the various capabilities in <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/features.html">the documentation</a>.</p>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>Within <code class="docutils literal notranslate"><span class="pre">kitchen_sink.py</span></code> you’ll notice the callbacks that are used, which map directly to the capabilities that the gadget is configured to respond to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_addr</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_disconnected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_addr</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_alexa_gadget_statelistener_stateupdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_notifications_setindicator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_notifications_clearindicator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_alexa_gadget_speechdata_speechmarks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_alexa_gadget_musicdata_tempo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_alerts_setalert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">on_alerts_deletealert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>In this example, a message is logged to the command line for each directive that is received from the Echo device. This is where you can add new ways for your gadget to respond, like lighting an LED, moving a servo, etc.</p>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>Now that you’ve successfully set up your Raspberry Pi as a gadget, you can begin to customize it. You can either continue to build an example, or build your own.</p>
+<p>To build your own project, simply duplicate one of the examples. Then, you can modify the example config and Python code to specify how your gadget reacts to different incoming messages. You can run your project the same way you ran the example →  <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">--example</span> <span class="pre">YOUR_EXAMPLE_NAME</span></code></p>
+<p>To learn more about Alexa Gadgets Toolkit capabilities, <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/features.html">review the documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wakeword.html" class="btn btn-neutral float-right" title="Wake Word LED Gadget Example" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="color_cycler.html" class="btn btn-neutral" title="Color Cycler Gadget" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, alexa gadgets team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

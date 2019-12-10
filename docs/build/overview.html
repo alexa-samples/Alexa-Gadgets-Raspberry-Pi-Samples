@@ -13,40 +13,43 @@
 
   
   
-  
+
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
     
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="agt" href="api.html" />
-    <link rel="prev" title="Alexa Gadgets Raspberry Pi Samples" href="index.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation" href="index.html"/>
+        <link rel="next" title="agt" href="api.html"/>
+        <link rel="prev" title="Alexa Gadgets Raspberry Pi Samples" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -81,16 +84,14 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+                <p class="caption"><span class="caption-text">Overview</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#registering-a-gadget-in-the-alexa-voice-service-developer-console">Registering a gadget in the Alexa Voice Service Developer Console</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">Running the example projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">How does this work?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#callbacks">Callbacks</a><ul>
@@ -111,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id15">Pairing your gadget to an Echo device</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#if-you-re-using-an-echo-device-without-a-screen">If you’re using an Echo device without a screen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#if-you-are-using-an-echo-device-with-a-screen">If you are using an Echo device with a screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disconnecting-your-gadget">Disconnecting your gadget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#re-pairing-your-gadget">Re-pairing your gadget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#unpairing-your-gadget">Unpairing your gadget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#forgetting-your-gadget-from-echo-device">Forgetting your gadget from Echo device</a><ul>
@@ -118,17 +120,18 @@
 <li class="toctree-l4"><a class="reference internal" href="#id18">If you are using an Echo device with a screen</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-guide">Troubleshooting guide</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">Switching Transport mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">Troubleshooting guide</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="colorcycler.html">Color Cycler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kitchensink.html">Kitchen Sink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_cycler.html">Color Cycler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kitchen_sink.html">Kitchen Sink</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wakeword.html">Wake Word</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notification.html">Notification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
@@ -143,52 +146,32 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Alexa Gadgets Raspberry Pi Samples</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Alexa Gadgets Raspberry Pi Samples</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -202,16 +185,19 @@
 <li><p><a class="reference external" href="#installation">Installation</a></p></li>
 <li><p><a class="reference external" href="#registering-a-gadget-in-the-alexa-voice-service-developer-console">Registering a gadget in the AVS Developer Console</a></p></li>
 <li><p><a class="reference external" href="#projects">Projects</a></p></li>
+<li><p><a class="reference external" href="#running-the-example-projects">Running the example projects</a></p></li>
 <li><p><a class="reference external" href="#how-does-this-work">How does this work?</a></p></li>
 <li><p><a class="reference external" href="#pairing-your-gadget-to-an-echo-device">Pairing your gadget to an Echo Device</a></p></li>
+<li><p><a class="reference external" href="#switching-transport-mode">Switching Transport mode</a></p></li>
+<li><p><a class="reference external" href="#troubleshooting-guide">Troubleshooting guide</a></p></li>
 </ul>
 <div class="section" id="id1">
 <h2>Prerequisites<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Raspberry Pi Zero W (<a class="reference external" href="https://www.amazon.com/CanaKit-Raspberry-Wireless-Complete-Starter/dp/B072N3X39J/">Starter Kit</a>) or Raspberry Pi 3 B+ (<a class="reference external" href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Premium/dp/B07BLRSKBV">Starter Kit</a>) with an internet connection</p></li>
-<li><p>A <a class="reference external" href="https://www.amazon.com/SanDisk-Mobile-MicroSDHC-SDSDQM-B35A-Adapter/dp/B004ZIENBA/">Micro SD card</a> with a minimum of 8GB of space and the latest version of <a class="reference external" href="https://www.raspberrypi.org/downloads/raspbian/">Raspian Stretch</a> installed.</p></li>
+<li><p>Raspberry Pi 3 B+ (<a class="reference external" href="https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Premium/dp/B07BLRSKBV">Starter Kit</a>) or later version that supports <em>Bluetooth 4.2</em> with an internet connection.</p></li>
+<li><p>A <a class="reference external" href="https://www.amazon.com/SanDisk-Mobile-MicroSDHC-SDSDQM-B35A-Adapter/dp/B004ZIENBA/">Micro SD card</a> with a minimum of 8GB of space and the latest version of <a class="reference external" href="https://www.raspberrypi.org/downloads/raspbian/">Raspian</a> installed.</p></li>
 <li><p>An <a class="reference external" href="https://developer.amazon.com/alexa">Amazon Developer account</a>. If you don’t already have a developer account, create one.</p></li>
-<li><p>An Echo device that is compatible with Alexa Gadgets. <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/understand-alexa-gadgets-toolkit.html#devices">Learn more</a></p></li>
+<li><p>An Echo device that is compatible with Alexa Gadgets. <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#device-bluetooth-support">Learn more</a></p></li>
 </ul>
 <p>If you need help getting your Raspberry Pi set up, there are a number of guides available online with instructions; you may want to <a class="reference external" href="https://hackernoon.com/raspberry-pi-headless-install-462ccabd75d0">follow this one</a>. Make sure your Raspberry Pi is up-to-date with the latest updates.</p>
 <blockquote>
@@ -244,24 +230,22 @@
 </ol>
 <p>To learn more, refer to <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/register-gadget.html">Register a Gadget</a> in the Alexa Gadgets Toolkit documentation.</p>
 </div>
-<div class="section" id="id4">
-<h2>Installation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>In order to get your Raspberry Pi set up as an Alexa Gadget, you will need to download and install some Python packages. To run the following commands, you will need to be connected to your Pi via SSH or VNC, or be running them directly using a keyboard, mouse, and monitor connected to your Pi. Make sure your Pi is connected to the internet.</p>
+<div class="section" id="id3">
+<h2>Installation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>To setup your Raspberry Pi as an Alexa Gadget, you will need to download and install some Python and Debian packages. To run the following commands, you will need to be connected to your Pi via SSH or VNC, or be running them directly using a keyboard, mouse, and monitor connected to your Pi. Make sure your Pi is connected to the internet.</p>
 <p>Download Alexa-Gadgets-Raspberry-Pi-Samples repo from GitHub using one of the following ways:</p>
 <ul>
 <li><p><strong>Using git clone:</strong></p>
 <ul>
-<li><p>In your terminal:
-.. code-block:: guess</p>
-<blockquote>
-<div><p>git clone <a class="reference external" href="https://github.com/alexa/Alexa-Gadgets-Raspberry-Pi-Samples.git">https://github.com/alexa/Alexa-Gadgets-Raspberry-Pi-Samples.git</a></p>
-</div></blockquote>
+<li><p>In your terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">alexa</span><span class="o">/</span><span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
 </li>
-<li><p>If you didn’t clone the repo directly on your Pi, you can transfer it to your Pi using the <code class="docutils literal notranslate"><span class="pre">scp</span></code> <a class="reference external" href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">command</a>
-.. code-block:: guess</p>
-<blockquote>
-<div><p>scp -r Alexa-Gadgets-Raspberry-Pi-Samples <a class="reference external" href="mailto:pi&#37;&#52;&#48;192&#46;168&#46;0&#46;1">pi<span>&#64;</span>192<span>&#46;</span>168<span>&#46;</span>0<span>&#46;</span>1</a>:~/Alexa-Gadgets-Raspberry-Pi-Samples</p>
-</div></blockquote>
+<li><p>If you didn’t clone the repo directly on your Pi, you can transfer it to your Pi using the <code class="docutils literal notranslate"><span class="pre">scp</span></code> <a class="reference external" href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">command</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span> <span class="n">pi</span><span class="o">@</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="o">~/</span><span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span>
+</pre></div>
+</div>
 <p><strong>Note:</strong> Replace <code class="docutils literal notranslate"><span class="pre">192.168.0.1</span></code> with the IP address of your Pi.</p>
 </li>
 </ul>
@@ -269,14 +253,13 @@
 <li><p><strong>Using GitHub Web UI:</strong></p>
 <ul>
 <li><p>Click on the <strong>Clone or download</strong> button and click on <strong>Download ZIP</strong>.</p></li>
-<li><p>Unzip the downloaded <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples-master.zip</span></code> file:
-.. code-block:: guess</p>
-<blockquote>
-<div><p>unzip Alexa-Gadgets-Raspberry-Pi-Samples-master.zip</p>
-</div></blockquote>
+<li><p>Unzip the downloaded <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples-master.zip</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unzip</span> <span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span><span class="o">-</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
 </li>
 <li><p>If you didn’t download &amp; unzip the repo directly on your Pi, you can transfer it to your Pi using the <code class="docutils literal notranslate"><span class="pre">scp</span></code> <a class="reference external" href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">command</a></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span><span class="o">-</span><span class="n">master</span> <span class="n">pi</span><span class="o">@</span><span class="mi">192</span><span class="p">.</span><span class="mi">168</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">:</span><span class="o">~/</span><span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span><span class="o">-</span><span class="n">master</span> <span class="n">pi</span><span class="o">@</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="o">~/</span><span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span>
 </pre></div>
 </div>
 <p><strong>Note:</strong> Replace <code class="docutils literal notranslate"><span class="pre">192.168.0.1</span></code> with the IP address of your Pi.</p>
@@ -285,68 +268,103 @@
 </li>
 </ul>
 <p>Once you have the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples</span></code> repo on your Pi, go into the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples</span></code> folder</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Alexa</span><span class="o">-</span><span class="n">Gadgets</span><span class="o">-</span><span class="n">Raspberry</span><span class="o">-</span><span class="n">Pi</span><span class="o">-</span><span class="n">Samples</span><span class="o">/</span>
 </pre></div>
 </div>
-<p>Run the setup script, which will update your Pi (this could take around 15 - 20 minutes, depending on your Internet connection speed), and install libraries for Bluetooth, protobuf, interacting with GPIOs, etc.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">bash</span> <span class="p">.</span><span class="o">/</span><span class="n">setup</span><span class="p">.</span><span class="n">sh</span>
+<p>Here, you will find the <code class="docutils literal notranslate"><span class="pre">launch.py</span></code> script which is the single point of entry for setting up your gadget and launching the example projects.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_0.png"><img alt="Pi CLI Screenshot 0" src="_images/pi_cli_screenshot_0.png" /></a>
+<p>To setup your gadget, run the launch script with <code class="docutils literal notranslate"><span class="pre">--setup</span></code> argument, which will let you configure your gadget’s credentials; install &amp; update the libraries for Bluetooth, protobuf, interacting with GPIOs, etc; and configure the transport mode (Classic Bluetooth / BLE).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">setup</span>
 </pre></div>
 </div>
 <blockquote>
-<div><p><strong>Note:</strong> Since the gadget needs a reliable Bluetooth connection with the Echo device, the A2DP Bluetooth profile will be disabled as part of the setup. If you would like to re-enable it please follow the Troubleshooting guide below.</p>
+<div><p><strong>Note:</strong> Since the gadget needs a reliable Bluetooth connection with the Echo device, the A2DP Bluetooth profile will be disabled as part of the setup. If you would like to re-enable it please follow the <strong>Troubleshooting guide</strong> below.</p>
 </div></blockquote>
 <p>If you already have registered your gadget using the <strong>Registering a gadget in the Alexa Voice Service Developer Console</strong> section, you can press <code class="docutils literal notranslate"><span class="pre">y</span></code> and enter your gadget’s <code class="docutils literal notranslate"><span class="pre">Amazon</span> <span class="pre">ID</span></code> and <code class="docutils literal notranslate"><span class="pre">Alexa</span> <span class="pre">Gadget</span> <span class="pre">Secret</span></code> so that the setup script automatically configures all the examples with your gadget’s credentials.</p>
 <a class="reference external image-reference" href="_static/images/pi_cli_screenshot_1.png"><img alt="Pi CLI Screenshot 1" src="_images/pi_cli_screenshot_1.png" /></a>
-<p>Once the script completes, press any button to reboot your Pi.</p>
+<p>The Pi will update and install the Debian &amp; Python dependencies.</p>
+<p>For the gadget to successfully communicate with your Echo device over BLE, a modification to the <em>bluez-5.50</em> is needed to enable notification callbacks after reconnection with a paired Echo device. The launch script will enable you to download the <em>bluez-5.50</em> package, modify it, and install it to your Pi.
+To use <strong>Alexa Gadgets Raspberry Pi Samples</strong> you will need to read and agree to the <strong>Terms and Conditions</strong>. If you agree, enter <em>‘AGREE’</em> else enter <em>‘QUIT’</em> to quit the installation.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_2.png"><img alt="Pi CLI Screenshot 2" src="_images/pi_cli_screenshot_2.png" /></a>
+<p>Once all the dependencies are installed, you will be asked to choose the transport mode to use to communicate with the Echo device.
+You can enter <em>‘BT’</em> if you would like to choose <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#classic-bluetooth">Classic Bluetooth</a>, or you can enter <em>‘BLE’</em> to choose <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#bluetooth-low-energy-beta">Bluetooth Low Energy</a>.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_3.png"><img alt="Pi CLI Screenshot 3" src="_images/pi_cli_screenshot_3.png" /></a>
+<p>Once the launch script configures the gadget based on the transport mode selected, a <strong>SUCCESS</strong> message will be printed.</p>
 <blockquote>
 <div><p>If you’re using Pi in Desktop mode (using Pi with a display), you should disable the Pi Bluetooth menu to prevent two bluetooth clients (your gadget script and the Pi Bluetooth client) handling the bluetooth connections at the same time (which might lead to connectivity issues).
 To disable the Pi Bluetooth menu right click on bluetooth icon on the top right of your screen, select <em>Remove “Bluetooth” From Panel</em> and reboot your Pi.</p>
 <a class="reference external image-reference" href="_static/images/pi_desktop_disable_bt_menu.png"><img alt="Pi Desktop disable BT Menu" src="_images/pi_desktop_disable_bt_menu.png" /></a>
 </div></blockquote>
 </div>
-<div class="section" id="id6">
-<h2>Projects<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>Projects<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>The best way to get familiar with creating your own gadget, is to reference the example projects that are a part of this project.</p>
 <p>You can find example projects in the <code class="docutils literal notranslate"><span class="pre">/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples</span></code> folder. The Kitchen Sink example is a great place to start.</p>
 <p>Projects include:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="kitchensink.html">Kitchen Sink Gadget</a>: Create an Alexa Gadget that prints messages in response to directives from <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/supported-interfaces.html">Alexa Gadgets Toolkit interfaces</a>, including wake word detection, alarms, timers, notifications, and reminders.</p></li>
-<li><p><a class="reference external" href="colorcycler.html">Color Cycler Gadget</a>: Create an Alexa Gadget with an LED and a button, that uses Custom Directives to cycle through different colors and uses Custom Events to report the LED color when the button is pressed. This project requires an Alexa skill.</p></li>
+<li><p><a class="reference external" href="kitchen_sink.html">Kitchen Sink Gadget</a>: Create an Alexa Gadget that prints messages in response to directives from <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/supported-interfaces.html">Alexa Gadgets Toolkit interfaces</a>, including wake word detection, alarms, timers, notifications, and reminders.</p></li>
+<li><p><a class="reference external" href="color_cycler.html">Color Cycler Gadget</a>: Create an Alexa Gadget with an LED and a button, that uses Custom Directives to cycle through different colors and uses Custom Events to report the LED color when the button is pressed. This project requires an Alexa skill.</p></li>
 <li><p><a class="reference external" href="wakeword.html">Wake Word Gadget</a>: Create an Alexa Gadget that turns an LED on and off in sync with the detection of the wake word.</p></li>
-<li><p><a class="reference external" href="notification.html">Notification Flag Gadget</a>: Create an Alexa Gadget that rotates a servo to raise and lower a flag when a notification is received or cleared on a paired Echo device.</p></li>
+<li><p><a class="reference external" href="notification.html">Notification Flag Gadget</a>: Create an Alexa Gadget that rotates a servo motor to raise and lower a flag when a notification is received or cleared on a paired Echo device.</p></li>
 <li><p><a class="reference external" href="timer.html">Timer Gadget</a>: Create an Alexa Gadget that reacts to a single timer set on an Echo device. A servo rotates a disc to indicate the remaining duration of the timer, when the timer expires, and when a timer is canceled.</p></li>
 </ul>
 </div>
+<div class="section" id="id6">
+<h2>Running the example projects<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>To run a gadget example you can use the launch script with <em>–example</em> argument as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">example</span> <span class="n">example_name</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">example_name</span></code> defines the name of the example located in the <code class="docutils literal notranslate"><span class="pre">/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples</span></code> folder.
+For the launch script to be able to correctly identify your example using the <code class="docutils literal notranslate"><span class="pre">example_name</span></code>, the names of the example folder and the script (along with its <em>.ini</em> <a class="reference external" href="#configuration">config</a> file) should have the same name.</p>
+<p>For e.g. the folder structure for the Kitchen sink example looks as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="o">|--</span> <span class="n">examples</span>
+    <span class="o">|--</span> <span class="n">kitchen_sink</span>
+        <span class="o">|--</span> <span class="n">kitchen_sink</span><span class="o">.</span><span class="n">py</span>
+        <span class="o">|--</span> <span class="n">kitchen_sink</span><span class="o">.</span><span class="n">ini</span>
+        <span class="o">...</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>You can also launch an example by providing the path to the example’s python script as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">example</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">example</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> Please ensure that your example script also has a <em>.ini</em> config file accompanying it. Please follow the specifications for the .ini config file mentioned in the <strong>Configuration</strong> section.</p>
+</div></blockquote>
+</div>
 <div class="section" id="id7">
 <h2>How does this work?<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<p>This Python software enables the creation of an Alexa Gadget by handling the Bluetooth connection of the gadget to an Echo device, and responding to messages based on the Alexa Gadget Toolkit capabilities you specify.</p>
+<p>This Python software enables the creation of an Alexa Gadget by handling the connection of the gadget to an Echo device over Classic Bluetooth or Bluetooth Low Energy, and responding to messages based on the Alexa Gadget Toolkit capabilities you specify.</p>
 <div class="section" id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>Each gadget you create, including the examples, requires a configuration file that specifies the <code class="docutils literal notranslate"><span class="pre">Amazon</span> <span class="pre">ID</span></code> and <code class="docutils literal notranslate"><span class="pre">Alexa</span> <span class="pre">Gadget</span> <span class="pre">Secret</span></code> you created in the <a class="reference external" href="&quot;https://developer.amazon.com/avs/home.html#/avs/home&quot;">Alexa Voice Service Developer Console</a>, as well as a specification of the capabilities of your gadget.</p>
 <p>In each example, there is a <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file that includes this information. For example, the Kitchen Sink gadget’s configuration looks like:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">GadgetSettings</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">GadgetSettings</span><span class="p">]</span>
 <span class="n">amazonId</span> <span class="o">=</span> <span class="n">YOUR_GADGET_AMAZON_ID</span>
 <span class="n">alexaGadgetSecret</span> <span class="o">=</span> <span class="n">YOUR_GADGET_SECRET</span>
 
 <span class="p">[</span><span class="n">GadgetCapabilities</span><span class="p">]</span>
-<span class="n">Alexa</span><span class="p">.</span><span class="n">Gadget</span><span class="p">.</span><span class="n">StateListener</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">timeinfo</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">alarms</span><span class="p">,</span> <span class="n">reminders</span><span class="p">,</span> <span class="n">wakeword</span>
-<span class="n">Alerts</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
-<span class="n">Notifications</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
-<span class="n">Alexa</span><span class="p">.</span><span class="n">Gadget</span><span class="p">.</span><span class="n">MusicData</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">tempo</span>
-<span class="n">Alexa</span><span class="p">.</span><span class="n">Gadget</span><span class="p">.</span><span class="n">SpeechData</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">-</span> <span class="n">viseme</span>
+<span class="n">Alexa</span><span class="o">.</span><span class="n">Gadget</span><span class="o">.</span><span class="n">StateListener</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">timeinfo</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">alarms</span><span class="p">,</span> <span class="n">reminders</span><span class="p">,</span> <span class="n">wakeword</span>
+<span class="n">Alerts</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">Notifications</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Alexa</span><span class="o">.</span><span class="n">Gadget</span><span class="o">.</span><span class="n">MusicData</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">tempo</span>
+<span class="n">Alexa</span><span class="o">.</span><span class="n">Gadget</span><span class="o">.</span><span class="n">SpeechData</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">viseme</span>
 </pre></div>
 </div>
-<p>The Kitchen Sink example responds to all the Alexa Gadget Toolkit capabilities that are available, which you can see listed. You can learn more about these capabilities in the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/features.html">Alexa Gadgets Toolkit documentation</a>.</p>
+<p>The Kitchen Sink example responds to the Alexa Gadget Toolkit capabilities that are available, which you can see listed. You can learn more about these capabilities in the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/features.html">Alexa Gadgets Toolkit documentation</a>.</p>
 <p>The configuration file should either be:</p>
 <ul>
 <li><p>placed in the same folder as the python script and should have the same name as the python script;
-for e.g. for the Kitchen Sink example, the name of the configuration file should be same (<code class="docutils literal notranslate"><span class="pre">kitchen_sink_gadget.ini</span></code>) as the name of the python script (<code class="docutils literal notranslate"><span class="pre">kitchen_sink_gadget.py</span></code>) and both should be placed in the same folder (<code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/kitchensink</span></code>).</p></li>
-<li><p>Or, the path to the configuration <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file should be defined in your python script as follows:
+for e.g. for the Kitchen Sink example, the name of the configuration file should be same (<code class="docutils literal notranslate"><span class="pre">kitchen_sink.ini</span></code>) as the name of the python script (<code class="docutils literal notranslate"><span class="pre">kitchen_sink.py</span></code>) and both should be placed in the same folder (<code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/kitchen_sink</span></code>).</p></li>
+<li><p>or, the path to the configuration <code class="docutils literal notranslate"><span class="pre">.ini</span></code> file should be defined in your python script as follows:
 .. code-block:: python</p>
 <blockquote>
 <div><dl class="simple">
 <dt>class KitchenSinkGadget(AlexaGadget):</dt><dd><dl class="simple">
-<dt>def __init__(self):</dt><dd><p>super().__init__(gadget_config_path=’path/to/config.ini’))
+<dt>def __init__(self):</dt><dd><p>super().__init__(gadget_config_path=’path/to/config.ini’)
 …</p>
 </dd>
 </dl>
@@ -356,13 +374,13 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 </li>
 </ul>
 <blockquote>
-<div><p><strong>Note:</strong> You do not need to create new credentials for each new gadget you create, especially if you’re just experimenting. As you refine your prototype, you may want to make sure that gadget has its own Amazon ID and Alexa Gadget Secret to avoid conflicts with other gadgets you create.</p>
+<div><p><strong>Note:</strong> You do not need to create new credentials for each new gadget you create, especially if you’re just experimenting. As you refine your prototype, you may want to make sure that gadget has its own <code class="docutils literal notranslate"><span class="pre">Amazon</span> <span class="pre">ID</span></code> and <code class="docutils literal notranslate"><span class="pre">Alexa</span> <span class="pre">Gadget</span> <span class="pre">Secret</span></code> to avoid conflicts with other gadgets you create.</p>
 </div></blockquote>
 </div>
 <div class="section" id="callbacks">
 <h3>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h3>
 <p>Each example project leverages callbacks that have been provided for responding to the capabilities that your gadget is configured to respond to.</p>
-<p>You can see an example of these callbacks in the Kitchen Sink gadget within the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/kitchensink.htmlkitchen_sink_gadget.py</span></code> Python file, including:</p>
+<p>You can see an example of these callbacks in the Kitchen Sink gadget within the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/kitchen_sink/kitchen_sink.py</span></code> Python file, including:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">on_connected()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">on_disconnected()</span></code></p></li>
@@ -388,20 +406,20 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">Alexa.Gadget.StateListener.StateUpdate</span></code> directive received, including alarms, timers, reminders, wakeword, and timeinfo. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-statelistener-interface.html#StateUpdate-directive">Alexa.Gadget.StateListener Interface</a> documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Alexa.Gadget.StateListener</span> <span class="pre">=</span> <span class="pre">1.0</span> <span class="pre">-</span> <span class="pre">timeinfo,</span> <span class="pre">timers,</span> <span class="pre">alarms,</span> <span class="pre">reminders,</span> <span class="pre">wakeword</span></code> for each must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file. You can remove unused types.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">StateListener</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Time info
-{ {&#39;payload&#39;: {&#39;states&#39;: [{&#39;value&#39;: &#39;2019-03-25T14:43:10-07:00&#39;, &#39;name&#39;: &#39;timeinfo&#39;}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.StateListener&#39;, &#39;name&#39;: &#39;StateUpdate&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Time info</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-03-25T14:43:10-07:00&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;timeinfo&#39;</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.StateListener&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;StateUpdate&#39;</span><span class="p">}}</span> <span class="p">}</span>
 
-# Wake word active
-{ {&#39;payload&#39;: {&#39;states&#39;: [{&#39;value&#39;: &#39;active&#39;, &#39;name&#39;: &#39;wakeword&#39;}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.StateListener&#39;, &#39;name&#39;: &#39;StateUpdate&#39;}} }
+<span class="c1"># Wake word active</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;wakeword&#39;</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.StateListener&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;StateUpdate&#39;</span><span class="p">}}</span> <span class="p">}</span>
 
-# Wake word cleared
-{ {&#39;payload&#39;: {&#39;states&#39;: [{&#39;value&#39;: &#39;cleared&#39;, &#39;name&#39;: &#39;wakeword&#39;}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.StateListener&#39;, &#39;name&#39;: &#39;StateUpdate&#39;}} }
+<span class="c1"># Wake word cleared</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;cleared&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;wakeword&#39;</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.StateListener&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;StateUpdate&#39;</span><span class="p">}}</span> <span class="p">}</span>
 
-# Timer active
-{ {&#39;payload&#39;: {&#39;states&#39;: [{&#39;value&#39;: &#39;active&#39;, &#39;name&#39;: &#39;timers&#39;}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.StateListener&#39;, &#39;name&#39;: &#39;StateUpdate&#39;}} }
+<span class="c1"># Timer active</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;timers&#39;</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.StateListener&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;StateUpdate&#39;</span><span class="p">}}</span> <span class="p">}</span>
 
-# Timer cleared
-{ {&#39;payload&#39;: {&#39;states&#39;: [{&#39;value&#39;: &#39;cleared&#39;, &#39;name&#39;: &#39;timers&#39;}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.StateListener&#39;, &#39;name&#39;: &#39;StateUpdate&#39;}} }
+<span class="c1"># Timer cleared</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;states&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;cleared&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;timers&#39;</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.StateListener&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;StateUpdate&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -410,8 +428,8 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">Alerts</span></code> <code class="docutils literal notranslate"><span class="pre">SetAlert</span></code> directive received, for alarms, timers, and reminders. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alerts-interface.html">Alerts Interface</a> documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Alerts</span> <span class="pre">=</span> <span class="pre">1.1</span></code> must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">Alerts</span></code> <code class="docutils literal notranslate"><span class="pre">SetAlert</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Alert set
-{ {&#39;payload&#39;: {&#39;type&#39;: &#39;TIMER&#39;, &#39;token&#39;: &#39;853514641&#39;, &#39;scheduledTime&#39;: &#39;2019-03-25T14:44:51-07:00&#39;}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alerts&#39;, &#39;name&#39;: &#39;SetAlert&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alert set</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;TIMER&#39;</span><span class="p">,</span> <span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="s1">&#39;853514641&#39;</span><span class="p">,</span> <span class="s1">&#39;scheduledTime&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-03-25T14:44:51-07:00&#39;</span><span class="p">},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alerts&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SetAlert&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -420,8 +438,8 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">Alerts</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAlert</span></code> directive received, for alarms, timers, and reminders. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alerts-interface.html">Alerts Interface</a>  documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Alerts</span> <span class="pre">=</span> <span class="pre">1.1</span></code> must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">Alerts</span></code> <code class="docutils literal notranslate"><span class="pre">DeleteAlert</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Alert deleted
-{ {&#39;payload&#39;: {&#39;token&#39;: &#39;853514641&#39;}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alerts&#39;, &#39;name&#39;: &#39;DeleteAlert&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alert deleted</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;token&#39;</span><span class="p">:</span> <span class="s1">&#39;853514641&#39;</span><span class="p">},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alerts&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;DeleteAlert&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -430,8 +448,8 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">Notifications</span></code> <code class="docutils literal notranslate"><span class="pre">SetIndicator</span></code> directive received for notifications. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/notifications-interface.html">Notifications Interface</a> documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Notifications</span> <span class="pre">=</span> <span class="pre">1.0</span></code> must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">Notification</span></code> <code class="docutils literal notranslate"><span class="pre">SetIndicator</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Notification set
-{ {&#39;payload&#39;: {&#39;playAudioIndicator&#39;: True, &#39;asset&#39;: {}, &#39;persistVisualIndicator&#39;: True}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Notifications&#39;, &#39;name&#39;: &#39;SetIndicator&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notification set</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;playAudioIndicator&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;asset&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;persistVisualIndicator&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Notifications&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;SetIndicator&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -440,8 +458,8 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">Notifications</span></code> <code class="docutils literal notranslate"><span class="pre">ClearIndicator</span></code> directive received for notifications. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/notifications-interface.html">Notifications Interface</a> documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Notifications</span> <span class="pre">=</span> <span class="pre">1.0</span></code> must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">Notification</span></code> <code class="docutils literal notranslate"><span class="pre">ClearIndicator</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Notification cleared
-{ {&#39;payload&#39;: {}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Notifications&#39;, &#39;name&#39;: &#39;ClearIndicator&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Notification cleared</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Notifications&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;ClearIndicator&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -450,8 +468,8 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">SpeechData</span></code> <code class="docutils literal notranslate"><span class="pre">Speechmarks</span></code> directive received with speechmark data. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-speechdata-interface.html">SpeechData Interface</a> documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Alexa.Gadget.SpeechData</span> <span class="pre">=</span> <span class="pre">1.0</span> <span class="pre">-</span> <span class="pre">viseme</span></code> must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">SpeechData</span></code> <code class="docutils literal notranslate"><span class="pre">Speechmarks</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Speechmark
-{ {&#39;payload&#39;: {&#39;speechmarksData&#39;: [{&#39;value&#39;: &#39;t&#39;, &#39;type&#39;: &#39;VISEME&#39;, &#39;startOffsetInMilliSeconds&#39;: 708}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.SpeechData&#39;, &#39;name&#39;: &#39;Speechmarks&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Speechmark</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;speechmarksData&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;VISEME&#39;</span><span class="p">,</span> <span class="s1">&#39;startOffsetInMilliSeconds&#39;</span><span class="p">:</span> <span class="mi">708</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.SpeechData&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Speechmarks&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -460,8 +478,8 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <p><code class="docutils literal notranslate"><span class="pre">MusicData</span></code> <code class="docutils literal notranslate"><span class="pre">Tempo</span></code> directive received with tempo data. To learn more, refer to the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/alexa-gadget-musicdata-interface.html">MusicData Interface</a> documentation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Alexa.Gadget.MusicData</span> <span class="pre">=</span> <span class="pre">1.0</span> <span class="pre">-</span> <span class="pre">tempo</span></code> must be specified in the <code class="docutils literal notranslate"><span class="pre">[Gadget</span> <span class="pre">Capabilities]</span></code> section of your gadget’s configuration file.</p>
 <p>Directives for <code class="docutils literal notranslate"><span class="pre">MusicData</span></code> <code class="docutils literal notranslate"><span class="pre">Tempo</span></code> look like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># Tempo
-{ {&#39;payload&#39;: {&#39;playerOffsetInMilliSeconds&#39;: 681, &#39;tempoData&#39;: [{&#39;value&#39;: 118}]}, &#39;header&#39;: {&#39;namespace&#39;: &#39;Alexa.Gadget.MusicData&#39;, &#39;name&#39;: &#39;Tempo&#39;}} }
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tempo</span>
+<span class="p">{</span> <span class="p">{</span><span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;playerOffsetInMilliSeconds&#39;</span><span class="p">:</span> <span class="mi">681</span><span class="p">,</span> <span class="s1">&#39;tempoData&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">118</span><span class="p">}]},</span> <span class="s1">&#39;header&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;namespace&#39;</span><span class="p">:</span> <span class="s1">&#39;Alexa.Gadget.MusicData&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tempo&#39;</span><span class="p">}}</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>Using these callbacks you can define how your gadget should respond to the directives sent by the paired Echo device, like lighting an LED, moving a servo, etc.</p>
@@ -471,7 +489,7 @@ for e.g. for the Kitchen Sink example, the name of the configuration file should
 <h3>Custom Callbacks<a class="headerlink" href="#custom-callbacks" title="Permalink to this headline">¶</a></h3>
 <p>In addition to the above callbacks, you can define custom callbacks that respond to the receipt of <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/custom-interface.html#overview">custom directives</a> on the gadget. The name of the callback function is defined by the namespace and name of the custom directive as follows:
 The format of the callback name: on<em>custom</em><em>``namespace``**</em><code class="docutils literal notranslate"><span class="pre">name</span></code><a href="#id11"><span class="problematic" id="id12">**</span></a><em>Note:</em>* The <a href="#id13"><span class="problematic" id="id14">*</span></a><code class="docutils literal notranslate"><span class="pre">namespace</span></code>* mentioned in the callback name should be without the <code class="docutils literal notranslate"><span class="pre">Custom.</span></code> prefix.</p>
-<p>For e.g. in the Color Cycler gadget within the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/colorcycler.htmlcolor_cycler.py</span></code> Python file, we have two callbacks for custom directives defined:</p>
+<p>For e.g. in the Color Cycler gadget within the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/color_cycler/color_cycler.py</span></code> Python file, we have two callbacks for custom directives defined:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_custom_colorcyclergadget_blinkled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
     <span class="o">...</span>
 
@@ -484,12 +502,14 @@ The format of the callback name: on<em>custom</em><em>``namespace``**</em><code 
 </div>
 <div class="section" id="id15">
 <h2>Pairing your gadget to an Echo device<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
-<p>In order for a gadget you create to function, it will need to be paired to a <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/understand-alexa-gadgets-toolkit.html#devices">compatible Echo device</a>. When running any example, make sure that the Echo device you want to pair to is nearby, and you have access to the Alexa app. The Echo devices that support gadgets are listed in the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/understand-alexa-gadgets-toolkit.html#devices">Alexa Gadgets Toolkit documentation</a>.</p>
-<p>If your gadget has never been paired before, it will go into pairing mode when you run your gadget’s Python code. Following are the steps to pair your gadget using the Kitchen Sink example:</p>
+<p>In order for a gadget you create to function, it will need to be paired to a <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#device-bluetooth-support">compatible Echo device</a>. When running any example, make sure that the Echo device you want to pair to is nearby, and you have access to the Alexa app. The Echo devices that support gadgets are listed in the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/understand-alexa-gadgets-toolkit.html#devices">Alexa Gadgets Toolkit documentation</a>.</p>
+<p>If your gadget has never been paired before or if you switched the transport mode, it will go into pairing mode when you run your gadget’s Python code. Following are the steps to pair your gadget using the Kitchen Sink example:</p>
 <ul>
-<li><p>On your Pi, navigate to the <code class="docutils literal notranslate"><span class="pre">kitchensink</span></code> example in <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/kitchensink</span></code>.</p></li>
-<li><p>Run the kitchen sink example: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">kitchen_sink_gadget.py</span></code></p>
-<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_2.png"><img alt="Pi CLI Screenshot 2" src="_images/pi_cli_screenshot_2.png" /></a>
+<li><p>On your Pi, inside the <code class="docutils literal notranslate"><span class="pre">Alexa-Gadgets-Raspberry-Pi-Samples</span></code>, run the kitchen sink example using the launch script as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">example</span> <span class="n">kitchen_sink</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_4.png"><img alt="Pi CLI Screenshot 4" src="_images/pi_cli_screenshot_4.png" /></a>
 </li>
 </ul>
 <p>When in pairing mode, you will see a note of your gadget’s friendly name (e.g. <strong>GadgetXYZ</strong>) printed to the console. This name is what to look for when going through the following steps to pair your gadget to your Echo device.</p>
@@ -517,7 +537,7 @@ The format of the callback name: on<em>custom</em><em>``namespace``**</em><code 
 </li>
 <li><p>When your gadget is paired, you should see a new screen with a blue Bluetooth icon next to your gadget’s name.</p></li>
 <li><p>In the command line, you should also see messages indicating that your gadget is paired.</p>
-<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_3.png"><img alt="Pi CLI Screenshot 3" src="_images/pi_cli_screenshot_3.png" /></a>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_5.png"><img alt="Pi CLI Screenshot 5" src="_images/pi_cli_screenshot_5.png" /></a>
 </li>
 </ul>
 </div>
@@ -538,28 +558,32 @@ The format of the callback name: on<em>custom</em><em>``namespace``**</em><code 
 <a class="reference external image-reference" href="_static/images/screen_based_pairing_screenshot_4.png"><img alt="Screen based pairing Screenshot 4" src="_images/screen_based_pairing_screenshot_4.png" /></a>
 </li>
 <li><p>In the command line, you should also see messages indicating that your gadget is paired.</p>
-<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_3.png"><img alt="Pi CLI Screenshot 3" src="_images/pi_cli_screenshot_3.png" /></a>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_5.png"><img alt="Pi CLI Screenshot 5" src="_images/pi_cli_screenshot_5.png" /></a>
 </li>
 </ul>
 <blockquote>
 <div><p>If you face issues pairing or connecting your gadget with the Echo device, please follow the Troubleshooting guide below.</p>
 </div></blockquote>
 <p>When your gadget connects to an Echo device, you will see a discovery response with information including the capabilities your gadget has registered to use.</p>
-<p>You can also pair your gadget using the web version of the Alexa app at <a class="reference external" href="http://alexa.amazon.com/">alexa.amazon.com</a>.</p>
 <blockquote>
 <div><p><strong>Note:</strong> If you’re in Desktop mode on your Pi, and if you haven’t disabled the Pi Bluetooth menu; while pairing your Pi with the Echo device, you might get a pop-up on your Pi that asks you to trust the device that’s trying to connect. You can press OK or ignore the pop up by moving it aside.
 If you press OK you might see the following error:</p>
 </div></blockquote>
 </div>
+<div class="section" id="disconnecting-your-gadget">
+<h3>Disconnecting your gadget<a class="headerlink" href="#disconnecting-your-gadget" title="Permalink to this headline">¶</a></h3>
+<p>To disconnect your gadget, just terminate the launch script using <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code>. The gadget will disconnect and the script will terminate in a few seconds.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_6.png"><img alt="Pi CLI Screenshot 6" src="_images/pi_cli_screenshot_6.png" /></a>
+</div>
 <div class="section" id="re-pairing-your-gadget">
 <h3>Re-pairing your gadget<a class="headerlink" href="#re-pairing-your-gadget" title="Permalink to this headline">¶</a></h3>
-<p>To re-pair your gadget with the same or different Echo device, you can put your gadget in pairing mode again by adding the <code class="docutils literal notranslate"><span class="pre">--pair</span></code> argument to the command to run the Python code. For example: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">kitchen_sink_gadget.py</span> <span class="pre">--pair</span></code>.</p>
+<p>To re-pair your gadget with the same or different Echo device, you can put your gadget in pairing mode again by adding the <code class="docutils literal notranslate"><span class="pre">--pair</span></code> argument to the command to run the Python code. For example: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">kitchen_sink</span> <span class="pre">--pair</span></code>.</p>
 <p>If you are pairing to a previously paired Echo device, please ensure that you first forget the gadget from the Echo device using the instructions in the <strong>Forgetting your gadget from Echo device</strong> section.</p>
 </div>
 <div class="section" id="unpairing-your-gadget">
 <h3>Unpairing your gadget<a class="headerlink" href="#unpairing-your-gadget" title="Permalink to this headline">¶</a></h3>
-<p>When you pair your Pi to an Echo device, the Bluetooth address for the Echo device is stored in a JSON file named <code class="docutils literal notranslate"><span class="pre">.agt.json</span></code> at <code class="docutils literal notranslate"><span class="pre">/src/</span></code>. You can manually clear this Bluetooth address as well as the Bluetooth bond with the Echo device by adding a <code class="docutils literal notranslate"><span class="pre">--clear</span></code> argument to the command to run the Python code. For example: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">kitchen_sink_gadget.py</span> <span class="pre">--clear</span></code>.</p>
-<p>For good measure, you may want to unpair the gadget from your Echo device using the steps listed below.</p>
+<p>When you pair your Pi to an Echo device, the Bluetooth address for the Echo device is stored in a JSON file named <code class="docutils literal notranslate"><span class="pre">.agt.json</span></code> at <code class="docutils literal notranslate"><span class="pre">/src/</span></code>. You can manually clear this Bluetooth address as well as the Bluetooth bond with the Echo device by using the <code class="docutils literal notranslate"><span class="pre">--clear</span></code> argument. For example: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">--example</span> <span class="pre">kitchen_sink</span> <span class="pre">--clear</span></code>.</p>
+<p>You are also required to unpair the gadget from your Echo device using the steps listed below.</p>
 </div>
 <div class="section" id="forgetting-your-gadget-from-echo-device">
 <h3>Forgetting your gadget from Echo device<a class="headerlink" href="#forgetting-your-gadget-from-echo-device" title="Permalink to this headline">¶</a></h3>
@@ -588,21 +612,40 @@ If you press OK you might see the following error:</p>
 </ul>
 </div>
 </div>
-<div class="section" id="troubleshooting-guide">
-<h3>Troubleshooting guide<a class="headerlink" href="#troubleshooting-guide" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id19">
+<h2>Switching Transport mode<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<p>To switch the transport mode used by your gadget to communicate with the Echo device, you will need to use the following instructions:</p>
+<ul>
+<li><p>Execute the launch script in setup mode</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">setup</span>
+</pre></div>
+</div>
+</li>
+<li><p>Answer <em>‘y’</em> or <em>‘n’</em> for re-configuring the gadget credentials based on your preference.</p></li>
+<li><p>Based on the currently configured transport mode, the script will ask you if you would like to switch from BT to BLE or vice versa. Enter <em>‘y’</em> to switch the transport mode of your gadget.</p></li>
+<li><p>If you switch the transport mode, the script will prompt you to unpair the gadget from your Echo device. Follow the instructions in <strong>Forgetting your gadget from Echo device</strong> section to unpair your gadget from the Echo device and press <em>ENTER</em>.</p></li>
+<li><p>The script then will clear your Echo device’s pairing bond from the gadget and terminate with the <strong>SUCCESS</strong> message.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_7.png"><img alt="Pi CLI Screenshot 7" src="_images/pi_cli_screenshot_7.png" /></a>
+</li>
+<li><p>Run any example to pair the gadget to your Echo device over the new transport mode using the instructions in <strong>Pairing your gadget to an Echo device</strong> section.</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>Troubleshooting guide<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>If your gadget pairs, but fails to connect, stop the Python script by pressing <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code>, and run it again:
-<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">kitchen_sink_gadget.py</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">--example</span> <span class="pre">kitchen_sink</span></code>.</p></li>
 <li><p>If your gadget fails to pair or needs to re-paired:</p>
 <ul class="simple">
 <li><p>Forget your gadget from the Echo device using the above <strong>Forgetting your gadget from Echo device</strong> instructions.</p></li>
-<li><p>On the gadget, stop the Python script (if it is running) by pressing <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code>, and run it again with the clear flag to put it in the pairing mode using the <code class="docutils literal notranslate"><span class="pre">--pair</span></code> argument:
-<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">kitchen_sink_gadget.py</span> <span class="pre">--pair</span></code></p></li>
+<li><p>On the gadget, stop the Python script (if it is running) by pressing <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code>, and run it again with the clear argument to put it in the pairing mode using the <code class="docutils literal notranslate"><span class="pre">--pair</span></code> argument:
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">--example</span> <span class="pre">kitchen_sink</span> <span class="pre">--pair</span></code></p></li>
 <li><p>Follow the instructions in <strong>Pairing your gadget to an Echo device</strong> to pair your gadget again to the Echo device.</p></li>
 </ul>
 </li>
-<li><p>If you see the following error after running <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">kitchen_sink_gadget.py</span></code></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>   Traceback (most recent call last):
+<li><p>If you see the following error after running <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">--example</span> <span class="pre">kitchen_sink</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   Traceback (most recent call last):
    File &quot;kitchen_sink_gadget.py&quot;, line 114, in &lt;module&gt;
        KitchenSinkGadget().main()
    File &quot;/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/agt/alexa_gadget.py&quot;, line 162, in main
@@ -623,7 +666,7 @@ this might be caused as a result of a stale python process still running in the 
 </div>
 </li>
 <li><p>As part of the setup script, the A2DP Bluetooth profile is disabled. If you would like to re-enable it, execute the following commands in the terminal:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">bluealsa</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">bluealsa</span>
 <span class="n">sudo</span> <span class="n">reboot</span>
 </pre></div>
 </div>
@@ -631,23 +674,22 @@ this might be caused as a result of a stale python process still running in the 
 <div><p><strong>Note:</strong> We strongly recommend that the A2DP Bluetooth profile is disabled to ensure stable gadget connectivity with the Echo device. To disable it again run the setup script mentioned in the <strong>Installation</strong> section.</p>
 </div></blockquote>
 </li>
+<li><p>You can also check out the <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/known-issues.html#bluetooth">list of known issues</a> associated with the Alexa Gadgets Toolkit.</p></li>
 </ul>
-</div>
 </div>
 </div>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api.html" class="btn btn-neutral float-right" title="agt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api.html" class="btn btn-neutral float-right" title="agt" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Alexa Gadgets Raspberry Pi Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Alexa Gadgets Raspberry Pi Samples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -656,11 +698,11 @@ this might be caused as a result of a stale python process still running in the 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, alexa gadgets team
+        &copy; Copyright 2019, alexa gadgets team.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -673,15 +715,36 @@ this might be caused as a result of a stale python process still running in the 
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

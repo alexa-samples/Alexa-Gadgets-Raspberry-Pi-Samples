@@ -31,9 +31,18 @@ Now that the servo is connected to your Pi, you can continue on with the example
 
 As with any example, you'll need to first add the credentials that are associated with the gadget you created in the [Alexa Voice Service Developer Console](https://developer.amazon.com/avs/home.html#/avs/home):
 
-1. On the command line of your Pi, navigate to `/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/timer` and open the `timer_gadget.ini` file within that folder.
+1. On the command line of your Pi, navigate to `/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/timer` and open the `timer.ini` file within that folder.
 2. Change the `amazonId` from `YOUR_GADGET_AMAZON_ID` to the **Amazon ID** that is displayed on the gadget's product page in the Alexa Voice Service Developer Console.
 3. Change the `alexaGadgetSecret` from `YOUR_GADGET_SECRET` to the **Alexa Gadget Secret** that is displayed on the gadget's product page in the Alexa Voice Service Developer Console.
+
+You can also use the launch script's setup mode to configure all the credentials for all the examples at once as follows:
+* Start the launch script in setup mode
+    ```
+    sudo python3 launch.py --setup
+    ```
+* Enter *'y'* when prompted for configuring the gadget credentials; and enter the `amazonId` and `alexaGadgetSecret` that is displayed on the gadget's product page in the Alexa Voice Service Developer Console.
+
+    ![Pi CLI Screenshot 1](../../../docs/_static/images/pi_cli_screenshot_1.png)
 
 To learn more, refer to [Register a Gadget](https://developer.amazon.com/docs/alexa-gadgets-toolkit/register-gadget.html) in the Alexa Gadgets Toolkit documentation.
 
@@ -43,7 +52,7 @@ The example follows the same model as other examples that you can browse within 
 
 ### Configuration
 
-Within the `timer_gadget.ini` file, in addition to the credentials you just modified, you will see a group of `[GadgetCapabilities]` that this gadget is registering for. In this case, it is registering for `StateListener` and `Alerts`:
+Within the `timer.ini` file, in addition to the credentials you just modified, you will see a group of `[GadgetCapabilities]` that this gadget is registering for. In this case, it is registering for `StateListener` and `Alerts`:
 
 ```
 [GadgetCapabilities]
@@ -55,7 +64,7 @@ In this example, you will be using version 1.0 of the [StateListener interface](
 
 ### Code
 
-Within `timer_gadget.py` you'll notice the import and use of Raspberry Pi's GPIO capabilities using the [gpiozero](https://gpiozero.readthedocs.io) library, as well as other packages:
+Within `timer.py` you'll notice the import and use of Raspberry Pi's GPIO capabilities using the [gpiozero](https://gpiozero.readthedocs.io) library, as well as other packages:
 
 ```python
 import logging
@@ -173,12 +182,12 @@ The above callbacks are listening for the set and cleared states of the timer se
 
 ## Step 4: Test your gadget
 
-In order for this gadget to function, it will need to be paired to a [compatible Echo device](https://developer.amazon.com/docs/alexa-gadgets-toolkit/understand-alexa-gadgets-toolkit.html#devices). Before running the example, refer to the [pairing guide](../../../README.md#pairing-your-gadget-to-an-echo-device) to learn how to pair your gadget.
+In order for this gadget to function, it will need to be paired to a [compatible Echo device](https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#device-bluetooth-support). Before running the example, refer to the [pairing guide](../../../README.md#pairing-your-gadget-to-an-echo-device) to learn how to pair your gadget.
 
 With your Echo device nearby, run the Python code:
 
 ```
-python3 timer_gadget.py
+sudo python3 launch.py --example timer
 ```
 
 Once your gadget paired/connected, try the following commands:

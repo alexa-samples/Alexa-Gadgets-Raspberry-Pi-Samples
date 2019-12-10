@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Color Cycler Gadget &mdash; Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Kitchen Sink Gadget Example" href="kitchen_sink.html"/>
+        <link rel="prev" title="agt" href="api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Alexa-Gadgets-Raspberry-Pi-Samples
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Python API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Projects</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Color Cycler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-connect-the-rgb-led-and-button-to-your-pi">Step 1: Connect the RGB LED and button to your Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-configure-your-credentials">Step 2: Configure your credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-explore-the-example">Step 3: Explore the example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-create-your-custom-skill">Step 4: Create your Custom Skill</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-the-skill-code-for-deployment-nodejs-version">Prepare the skill code for Deployment (NodeJS Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-the-skill-code-for-deployment-python-version">Prepare the skill code for Deployment (Python Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-your-lambda-function">Create your Lambda function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#explore-the-skill-code">Explore the skill code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-your-skill">Create your skill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-your-skill">Test your skill</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-test-your-gadget">Step 5: Test your gadget</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting-color-cycler-gadget">Troubleshooting Color cycler gadget:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kitchen_sink.html">Kitchen Sink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wakeword.html">Wake Word</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Color Cycler Gadget</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="color-cycler-gadget">
+<h1>Color Cycler Gadget<a class="headerlink" href="#color-cycler-gadget" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="_static/images/color_cycler_gadget.jpg"><img alt="Color Cycler Gadget" src="_images/color_cycler_gadget.jpg" /></a>
+<p><strong>This guide steps through the process of creating an Alexa Gadget with an LED and a button, that cycles through different colors and reports the LED color when the button is pressed.</strong></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In order to to run this example <strong>you should already have a Raspberry Pi</strong> with the <strong>Alexa-Gadgets-Raspberry-Pi-Samples software</strong> installed. Learn more in the <a class="reference external" href="overview.html">project README</a>. In addition, you will need the following hardware:</p>
+<ul>
+<li><p><a class="reference external" href="https://thepihut.com/products/adafruit-break-away-0-1-2x20-pin-strip-dual-male-header">Header pins</a> soldered to your Raspberry Pi (used for connecting hardware)</p></li>
+<li><p>common anode <a class="reference external" href="https://thepihut.com/products/adafruit-diffused-rgb-tri-color-led-common-anode">RGB LED</a></p></li>
+<li><p>Three <a class="reference external" href="https://thepihut.com/products/adafruit-through-hole-resistors-220-ohm-5-1-4w-pack-of-25">220 ohm resistors</a></p></li>
+<li><p><a class="reference external" href="https://thepihut.com/products/adafruit-tactile-button-switch-6mm-x-20-pack">Button</a></p></li>
+<li><p>Six male-female <a class="reference external" href="https://thepihut.com/products/adafruit-premium-female-male-extension-jumper-wires-20-x-6">jumper wires</a></p></li>
+<li><p><a class="reference external" href="https://thepihut.com/products/raspberry-pi-breadboard-half-size">Breadboard</a></p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="_static/images/color_cycler_components.png"><img alt="Components" src="_images/color_cycler_components.png" /></a>
+</div>
+<div class="section" id="step-1-connect-the-rgb-led-and-button-to-your-pi">
+<h2>Step 1: Connect the RGB LED and button to your Pi<a class="headerlink" href="#step-1-connect-the-rgb-led-and-button-to-your-pi" title="Permalink to this headline">¶</a></h2>
+<p>Before getting started with instructions on wiring your gadget, please note the following:</p>
+<ul class="simple">
+<li><p>The wire coloring mentioned below is for reference sake only, for making it easier to follow the setup instructions using the diagrams. You can use wires with any colors, as long as you connect the wires to the correct Raspberry Pi pins and breadboard holes based on the instructions.</p></li>
+<li><p>Breadboards come with holes labeled from 1-30 or 1-60 (based on the size of the breadboard) for rows and A-J for columns. The instructions below has references to the hole labels based on the setup shown in Figure 3, you can use different holes as long as the hardware components are placed correctly as shown in Figure 3.</p></li>
+<li><p>The Raspberry Pi comes with Pins labelled from 1-40. You need to connect the wires to the exact pins as mentioned in the instructions, as the gadget code is configured to use these specific pins.</p></li>
+</ul>
+<p>The following steps walk you through connecting the RGB LED and button:</p>
+<ol class="arabic simple">
+<li><p><strong>Make sure your Raspberry Pi is powered off.</strong></p></li>
+<li><p>To connect a RGB LED, connect jumper wires to the vcc and <a class="reference external" href="https://projects.raspberrypi.org/en/projects/physical-computing/3">GPIO</a> pins on the Raspberry Pi as shown in the wiring diagram below (Figure 3):</p>
+<ul class="simple">
+<li><p>Brown wire to the Pin 1 (3.3v) of Raspberry Pi,</p></li>
+<li><p>Red wire to Pin 3 (GPIO 2) of Raspberry Pi,</p></li>
+<li><p>Green wire to Pin 5 (GPIO 3) of Raspberry Pi,</p></li>
+<li><p>and Blue wire to Pin 7 (GPIO 4) of Raspberry Pi.</p></li>
+</ul>
+</li>
+<li><p>Push the common anode RGB LED’s legs into the bread board, starting from Hole A5 to A8 such that:
+(refer to Figure 1 for RGB LED Pinout)</p>
+<ul class="simple">
+<li><p>the leftmost leg (Red) is placed in hole A5,</p></li>
+<li><p>the longest leg (VCC) is second from the left and is placed in hole A6,</p></li>
+<li><p>the third leg from left (Green) is placed in hole A7,</p></li>
+<li><p>and, the rightmost leg (Blue) is placed in hole A8.</p></li>
+</ul>
+</li>
+<li><p>As shown in the wiring diagram below (Figure 3), place one end of three 220 ohms resistors in the holes D5, D7, and D8 respectively of the breadboard, such that they connect to the rows connected to the 1st (Red), 3rd (Green), and 4th (Blue) legs of the RGB LED from the left (refer to Figure 1 for RGB LED Pinout). Place the other end of the three resistors in the holes F5, F7, and F8 respectively of the breadboard as shown in Figure 3.</p></li>
+<li><p>Connect the Brown wire directly into hole D6 of the breadboard to connect  it to the longest leg (VCC) of the RGB LED.</p></li>
+<li><p>Connect the Red wire into hole G5 of the breadboard to connect it to the resistor connected to the 1st leg from the left (Red), the Green wire into hole G7 of the breadboard to connect it to the resistor connected to the 3rd leg from the left (Green), and the Blue wire into hole G8 of the breadboard to connect it to the resistor connected to the 4th leg from the left (Blue).</p></li>
+<li><p>To connect a button, connect jumper wires to the Raspberry Pi pins as shown in the wiring diagram below (Figure 3):</p>
+<ul class="simple">
+<li><p>Black wire to the Pin 6 (GND) of Raspberry Pi,</p></li>
+<li><p>Orange wire to Pin 8 (GPIO 14) of Raspberry Pi.</p></li>
+</ul>
+</li>
+<li><p>Push the button into the breadboard, such that both the signal pins are in the holes A3 and D3 of the breadboard; and the GND pins are in the holes A1 and D1 of the breadboard. (refer to Figure 2 for Button Pinout).</p></li>
+<li><p>As shown in the wiring diagram below (Figure 3), connect the Orange wire to the hole E3 of the breadboard; and the Black wire to the hole E1 of the breadboard.</p></li>
+<li><p><strong>Once this setup is complete, start up your Pi.</strong></p></li>
+</ol>
+<a class="reference external image-reference" href="_static/images/rgb_led_pinout.png"><img alt="RGB LED Pinout" src="_images/rgb_led_pinout.png" /></a>
+<a class="reference external image-reference" href="_static/images/button_pinout.png"><img alt="Button Pinout" src="_images/button_pinout.png" /></a>
+<a class="reference external image-reference" href="_static/images/led_button_to_rpi.png"><img alt="LED and Button to Raspberry Pi Diagram" src="_images/led_button_to_rpi.png" /></a>
+</div>
+<div class="section" id="step-2-configure-your-credentials">
+<h2>Step 2: Configure your credentials<a class="headerlink" href="#step-2-configure-your-credentials" title="Permalink to this headline">¶</a></h2>
+<p>Now that the RGB LED and the button are connected to your Pi, you can continue on with the example.</p>
+<p>As with any example, you’ll need to first add the credentials that are associated with the gadget you created in the <a class="reference external" href="https://developer.amazon.com/avs/home.html#/avs/home">Alexa Voice Service Developer Console</a>:</p>
+<ol class="arabic simple">
+<li><p>On the command line of your Pi, navigate to <code class="docutils literal notranslate"><span class="pre">/home/pi/Alexa-Gadgets-Raspberry-Pi-Samples/src/examples/color_cycler</span></code> and open the <code class="docutils literal notranslate"><span class="pre">color_cycler.ini</span></code> file within that folder.</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">amazonId</span></code> from <code class="docutils literal notranslate"><span class="pre">YOUR_GADGET_AMAZON_ID</span></code> to the <strong>Amazon ID</strong> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">alexaGadgetSecret</span></code> from <code class="docutils literal notranslate"><span class="pre">YOUR_GADGET_SECRET</span></code> to the <strong>Alexa Gadget Secret</strong> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p></li>
+</ol>
+<p>You can also use the launch script’s setup mode to configure all the credentials for all the examples at once as follows:</p>
+<ul>
+<li><p>Start the launch script in setup mode</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">setup</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enter <em>‘y’</em> when prompted for configuring the gadget credentials; and enter the <code class="docutils literal notranslate"><span class="pre">amazonId</span></code> and <code class="docutils literal notranslate"><span class="pre">alexaGadgetSecret</span></code> that is displayed on the gadget’s product page in the Alexa Voice Service Developer Console.</p>
+<a class="reference external image-reference" href="_static/images/pi_cli_screenshot_1.png"><img alt="Pi CLI Screenshot 1" src="_images/pi_cli_screenshot_1.png" /></a>
+</li>
+</ul>
+<p>To learn more, refer to <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/register-gadget.html">Register a Gadget</a> in the Alexa Gadgets Toolkit documentation.</p>
+</div>
+<div class="section" id="step-3-explore-the-example">
+<h2>Step 3: Explore the example<a class="headerlink" href="#step-3-explore-the-example" title="Permalink to this headline">¶</a></h2>
+<p>The example follows the same model as other examples that you can browse within the Alexa-Gadgets-Raspberry-Pi-Samples project.</p>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">color_cycler.ini</span></code> file, in addition to the credentials you just modified, you will see a group of <code class="docutils literal notranslate"><span class="pre">[GadgetCapabilities]</span></code> that this gadget is registering for. In this case, it is registering for a custom interface called <code class="docutils literal notranslate"><span class="pre">Custom.ColorCyclerGadget</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">GadgetCapabilities</span><span class="p">]</span>
+<span class="n">Custom</span><span class="o">.</span><span class="n">ColorCyclerGadget</span> <span class="o">=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>In this example, you will be using version 1.0 of a custom interface that you will define. This interface is accessible via a <a class="reference external" href="https://developer.amazon.com/docs/custom-skills/understanding-custom-skills.html">custom skill</a> that you will create using Python or Node.js.</p>
+</div>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<p>Within <code class="docutils literal notranslate"><span class="pre">color_cycler.py</span></code>, you’ll notice the import and use of gpiozero library for using Raspberry Pi’s GPIO capabilities to control the RGB LED and button, as well as other packages:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gpiozero</span> <span class="kn">import</span> <span class="n">RGBLED</span><span class="p">,</span> <span class="n">Button</span>
+<span class="kn">from</span> <span class="nn">colorzero</span> <span class="kn">import</span> <span class="n">Color</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+<p>You’ll also notice the setup of the RGB LED and the button. Note that while setting up the RGB LED, the <code class="docutils literal notranslate"><span class="pre">active_high</span></code> parameter should be set to False for common anode LED or True for common cathode LED.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RGB_LED</span> <span class="o">=</span> <span class="n">RGBLED</span><span class="p">(</span><span class="n">GPIO_LED_RED</span><span class="p">,</span> <span class="n">GPIO_LED_GREEN</span><span class="p">,</span> <span class="n">GPIO_LED_BLUE</span><span class="p">,</span>
+                 <span class="n">active_high</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">initial_value</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">BUTTON</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">GPIO_BUTTON</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will also see custom callbacks that react to the directives that are received through the custom interface (<code class="docutils literal notranslate"><span class="pre">Custom.ColorCyclerGadget</span></code>) that you will create. For this example, you will create 2 different directives (<code class="docutils literal notranslate"><span class="pre">BlinkLED</span></code> and <code class="docutils literal notranslate"><span class="pre">StopLED</span></code>) under the same custom interface.</p>
+<p>The callback function names are defined in the following format: on<em>custom</em><a href="#id1"><span class="problematic" id="id2">*</span></a><code class="docutils literal notranslate"><span class="pre">namespace</span></code><a href="#id3"><span class="problematic" id="id4">*</span></a>_<a href="#id5"><span class="problematic" id="id6">*</span></a><code class="docutils literal notranslate"><span class="pre">name</span></code>* (<code class="docutils literal notranslate"><span class="pre">namespace</span></code> should be without <code class="docutils literal notranslate"><span class="pre">Custom.</span></code> prefix) as described in <a class="reference external" href="overview.html#CustomCallbacks">Custom Callbacks</a> section.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_custom_colorcyclergadget_blinkled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles Custom.ColorCyclerGadget.BlinkLED directive sent from skill</span>
+<span class="sd">    by triggering LED color cycling animations based on the received parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">directive</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="c1"># Initialize the color animation states based on parameters received from skill</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">colors_list</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s1">&#39;colors_list&#39;</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">intervalMs</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s1">&#39;intervalMs&#39;</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s1">&#39;iterations&#39;</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">game_active</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">payload</span><span class="p">[</span><span class="s1">&#39;startGame&#39;</span><span class="p">])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">keep_cycling</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">on_custom_colorcyclergadget_stopled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles Custom.ColorCyclerGadget.StopLED directive sent from skill</span>
+<span class="sd">    by stopping the LED animations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Turn off the LED and disable the color animation states to stop the LED cycling animation</span>
+    <span class="n">RGB_LED</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">keep_cycling</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">game_active</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">BlinkLED</span></code> directive will animate the RGB LED based on the parameters received from the custom skill, whereas <code class="docutils literal notranslate"><span class="pre">StopLED</span></code> directive will turn off any ongoing LED animation.</p>
+<p>You’ll also notice that a separate thread is created for animating the RGB LED based on the color animation states.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">led_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_led_blink</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">led_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The callbacks for <code class="docutils literal notranslate"><span class="pre">BlinkLED</span></code> and <code class="docutils literal notranslate"><span class="pre">StopLED</span></code> will change the color animation states, and the infinite loop running in the LED animation thread will animate the RGB LED based on these changes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_led_blink</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plays the LED cycling animation based on the color animation states</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># If cycling animation is still active</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep_cycling</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">colors_list</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">colors_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span>
+                                            <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">colors_list</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cycle_count</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+            <span class="c1"># Set the color for the LED</span>
+            <span class="n">RGB_LED</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+            <span class="c1"># Display the color for specified interval before switching again</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intervalMs</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+
+        <span class="c1"># If button is pressed, display the current color for 5 seconds</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">keep_cycling</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">game_active</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">RGB_LED</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">game_active</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will also see a callback setup for the button press:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">BUTTON</span><span class="o">.</span><span class="n">when_pressed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_button_pressed</span>
+</pre></div>
+</div>
+<p>This callback will report the color of the LED back to the custom skill using custom event <code class="docutils literal notranslate"><span class="pre">ReportColor</span></code> under the custom interface <code class="docutils literal notranslate"><span class="pre">Custom.ColorCyclerGadget</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_button_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Callback to report the LED color to the skill when the button is pressed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game_active</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Button Pressed: Current color = &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+
+        <span class="c1"># Send custom event to skill with the color of the LED</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_custom_event</span><span class="p">(</span>
+            <span class="s1">&#39;Custom.ColorCyclerGadget&#39;</span><span class="p">,</span> <span class="s1">&#39;ReportColor&#39;</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="c1"># Stop the LED cycling animation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keep_cycling</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-4-create-your-custom-skill">
+<h2>Step 4: Create your Custom Skill<a class="headerlink" href="#step-4-create-your-custom-skill" title="Permalink to this headline">¶</a></h2>
+<p>For an Alexa Gadget to receive and react to custom directives and for Alexa to receive and react to custom events sent from the gadget, the custom directives and the custom events should be sent and received respectively by a <a class="reference external" href="https://developer.amazon.com/docs/custom-skills/understanding-custom-skills.html">custom skill</a>. The skill can be coded in any language you like, however Alexa Skills Kit SDK is offered only for NodeJS, Python and Java and two example skills are provided with this sample: a NodeJS version, and a Python version. The following steps guide you through setting up and deploying the example skill that will work with your gadget. The skill sends down directives to your gadget to control the animation of the RGB LED and receives events from your gadget reporting the color of the LED when the button is pressed.</p>
+<p><strong>Note</strong>: although two versions of the example skill are provided, one for NodeJS and one for Python, the two are different implementations of the same thing, provided for convenience. You should only deploy one of the skills, depending on which language you are more comfortable with.</p>
+<p>The instructions below will walk you through deploying the example skills from scratch, using the Amazon Developer Portal web UI and the Amazon Web Services (AWS) console UI. It is also possible to deploy the example skills using the <a class="reference external" href="https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html">ASK CLI</a>.</p>
+<p>The setup and deployment process is nearly identical for both the NodeJS and the Python skill samples, with minor changes in the steps required to package the code and the configuration of the Lambda function: one uses the NodeJS runtime and the other Python; and the former uses <code class="docutils literal notranslate"><span class="pre">npm</span></code> for managing dependencies while the latter uses <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>For the NodeJS skill you must have NodeJS 8 or newer installed on your computer. If you don’t have NodeJS installed, you can quickly get it installed using <a class="reference external" href="https://github.com/nvm-sh/nvm/blob/master/README.md">NVM (the Node Version Manager)</a> on Linux and Mac, or using <a class="reference external" href="https://github.com/coreybutler/nvm-windows">NVM for Windows</a> on Windows.</p>
+<p>For the Python skill you must have Python 3.6 or newer installed on your computer. To check what version of Python you have installed, type this command in the terminal on your machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python --version
+</pre></div>
+</div>
+<p>You should see something like: “Python 3.6”</p>
+<div class="section" id="prepare-the-skill-code-for-deployment-nodejs-version">
+<h3>Prepare the skill code for Deployment (NodeJS Version)<a class="headerlink" href="#prepare-the-skill-code-for-deployment-nodejs-version" title="Permalink to this headline">¶</a></h3>
+<p>Before you can deploy the code to Lambda you must run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code> to get copies of the dependent packages used by the skill. These dependencies will be downloaded by <code class="docutils literal notranslate"><span class="pre">npm</span></code> (the NodeJS Package Manager) locally, into a folder called <code class="docutils literal notranslate"><span class="pre">node_modules</span></code> that will be placed into the <code class="docutils literal notranslate"><span class="pre">skill/NodeJS/lambda/custom</span></code> directory.</p>
+<p>The skill code is provided in the <a class="reference external" href="./skill/NodeJS/lambda/custom/index.js">index.js</a>, and the dependencies are mentioned in <a class="reference external" href="./skill/NodeJS/lambda/custom/package.json">package.json</a></p>
+<p><strong>IMPORTANT:</strong> Make sure to execute the following commands <strong>from the ``lambda/custom`` directory</strong> of the NodeJS skill sample in this repository.</p>
+<ol class="arabic">
+<li><p><strong>Install npm dependencies</strong> by navigating into the <code class="docutils literal notranslate"><span class="pre">skill/NodeJS/lambda/custom</span></code> directory and running the npm command: <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code> (you will need to run this command from the terminal, or command prompt on Windows)
+.. code-block:: bash</p>
+<blockquote>
+<div><p>npm install</p>
+</div></blockquote>
+</li>
+<li><p>Create a zip archive of the code and dependencies while still in the <code class="docutils literal notranslate"><span class="pre">skill/NodeJS/lambda/custom</span></code> directory (remember, we are zipping the contents of the folder, not the folder itself)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>zip -r ../../skill-code.zip .
+</pre></div>
+</div>
+<p>The file <code class="docutils literal notranslate"><span class="pre">skill-code.zip</span></code>, located in the <code class="docutils literal notranslate"><span class="pre">skill/NodeJS</span></code> directory, will contain the skill code as well as the necessary dependencies and will be uploaded to Lambda in the next section.</p>
+</div>
+<div class="section" id="prepare-the-skill-code-for-deployment-python-version">
+<h3>Prepare the skill code for Deployment (Python Version)<a class="headerlink" href="#prepare-the-skill-code-for-deployment-python-version" title="Permalink to this headline">¶</a></h3>
+<p>Before you can deploy the code to Lambda you must run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> to get copies of the dependent packages used by the skill. These dependencies will be downloaded by <code class="docutils literal notranslate"><span class="pre">pip</span></code> (the package installer for Python) locally, into a directory called <code class="docutils literal notranslate"><span class="pre">skill_env</span></code> that will be placed into the <code class="docutils literal notranslate"><span class="pre">skill/python/lambda</span></code> directory.</p>
+<p>The skill code is provided in the <a class="reference external" href="./skill/Python/lambda/lambda_function.py">lambda_function.py</a>, and the dependencies are mentioned in <a class="reference external" href="./skill/Python/lambda/requirements.txt">requirements.txt</a></p>
+<p><strong>IMPORTANT:</strong> Make sure to execute the following command <strong>from the ``lambda`` directory</strong> of the Python skill sample in this repository.</p>
+<ol class="arabic">
+<li><p>On your system, navigate into the <code class="docutils literal notranslate"><span class="pre">skill/python/lambda</span></code> directory and <strong>install the dependencies</strong> in a new folder called “skill_env” using the following command:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>pip install -r requirements.txt -t skill_env</p>
+</div></blockquote>
+</li>
+<li><p>Copy the skill code from the <code class="docutils literal notranslate"><span class="pre">skill/python/lambda/</span></code> folder into the <code class="docutils literal notranslate"><span class="pre">skill_env</span></code> folder:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>cp lambda_function.py skill_env/</p>
+</div></blockquote>
+</li>
+<li><p>Create a zip archive of the code and dependencies while still in the <code class="docutils literal notranslate"><span class="pre">skill/python/lambda</span></code> directory (remember, we are zipping the contents of the folder, not the folder itself)
+.. code-block:: bash</p>
+<blockquote>
+<div><p>cd skill_env
+zip -r ../../skill-code.zip .</p>
+</div></blockquote>
+</li>
+</ol>
+<p>The file <code class="docutils literal notranslate"><span class="pre">skill-code.zip</span></code>, located in the <code class="docutils literal notranslate"><span class="pre">skills/Python</span></code> directory, will contain the skill code as well as the necessary dependencies and will be uploaded to Lambda in the next section.</p>
+<p>(Optional) Follow the ASK Python SDK <a class="reference external" href="https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/GETTING_STARTED.html#adding-the-ask-sdk-for-python-to-your-project">Getting Started documentation</a>, to check alternative ways of installing the sdk and deploying to AWS Lambda console.</p>
+</div>
+<div class="section" id="create-your-lambda-function">
+<h3>Create your Lambda function<a class="headerlink" href="#create-your-lambda-function" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Sign in to the <a class="reference external" href="https://console.aws.amazon.com/lambda/home">AWS Management Console</a> and open the <a class="reference external" href="https://console.aws.amazon.com/lambda/home">AWS Lambda Console</a>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_lambda_screenshot_1.png"><img alt="Skill Lambda Screenshot 1" src="_images/colorcycler_skill_lambda_screenshot_1.png" /></a>
+</li>
+<li><p>Make sure the <strong>Region</strong> on the top right corner is set to <em>N. Virginia</em>.</p></li>
+<li><p>Click <strong>Create function</strong>, leave <strong>Author from scratch</strong> selected, and name the function whatever you like.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_lambda_screenshot_2.png"><img alt="Skill Lambda Screenshot 2" src="_images/colorcycler_skill_lambda_screenshot_2.png" /></a>
+</li>
+<li><p>Select <em>Runtime</em> as <em>NodeJs 10.x</em> or <em>Python 3.6</em>, depending on which skill you are deploying.</p></li>
+<li><p>For <strong>Permissions</strong>, if you don’t already have a role that allows for basic Lambda execution, follow <a class="reference external" href="https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#define-new-role">Defining a New Role for the Function</a> to create a new role from a template.</p></li>
+<li><p>Click on <strong>Create function</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_lambda_screenshot_3.png"><img alt="Skill Lambda Screenshot 3" src="_images/colorcycler_skill_lambda_screenshot_3.png" /></a>
+</li>
+<li><p>Change the Code entry type to <strong>Upload a ZIP</strong> and select the zip you created in the <strong>Prepare the Code for Deployment</strong> section above.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_lambda_screenshot_4.png"><img alt="Skill Lambda Screenshot 4" src="_images/colorcycler_skill_lambda_screenshot_4.png" /></a>
+</li>
+<li><p>Save the Lambda by clicking the <strong>Save</strong> button in the upper right corner of the screen.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_lambda_screenshot_5.png"><img alt="Skill Lambda Screenshot 5" src="_images/colorcycler_skill_lambda_screenshot_5.png" /></a>
+</li>
+</ol>
+</div>
+<div class="section" id="explore-the-skill-code">
+<h3>Explore the skill code<a class="headerlink" href="#explore-the-skill-code" title="Permalink to this headline">¶</a></h3>
+<p>Depending on which language you picked, you can find a brief exploration of the code in the README files within each skill sample directory, corresponding to your language:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="./skill/NodeJS/README.md">README For NodeJS</a></p></li>
+<li><p><a class="reference external" href="./skill/Python/README.md">README For Python</a></p></li>
+</ul>
+</div>
+<div class="section" id="create-your-skill">
+<h3>Create your skill<a class="headerlink" href="#create-your-skill" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Sign in to the <a class="reference external" href="https://developer.amazon.com/alexa/console/ask">Alexa Skills Kit Developer Console</a>&lt;/a&gt; and click <strong>Create Skill</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_1.png"><img alt="Skill Creation Screenshot 1" src="_images/colorcycler_skill_creation_screenshot_1.png" /></a>
+</li>
+<li><p>Enter <strong>Skill name</strong> as <em>color cycler</em>. Leave the <strong>Choose a model to add to your skill</strong> to <em>Custom</em>, and <strong>Choose a method to host your skill’s backend resources</strong> to <em>Provision your own</em>.</p></li>
+<li><p>Click on <strong>Create skill</strong> on the top right corner of the screen.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_2.png"><img alt="Skill Creation Screenshot 2" src="_images/colorcycler_skill_creation_screenshot_2.png" /></a>
+</li>
+<li><p>On the <strong>Choose a template</strong> screen, choose <em>Start from scratch</em> and click on the <strong>Choose</strong> button on the top right corner of the screen.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_3.png"><img alt="Skill Creation Screenshot 3" src="_images/colorcycler_skill_creation_screenshot_3.png" /></a>
+</li>
+<li><p>The skill is created. Now, click on <strong>JSON Editor</strong> in the left pane.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_4.png"><img alt="Skill Creation Screenshot 4" src="_images/colorcycler_skill_creation_screenshot_4.png" /></a>
+<ul>
+<li><p>Add utterance samples for Amazon.YesIntent and Amazon.NoIntent as follows:
+<strong>Note:</strong> This sample assumes that the skill is a US-based skill.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;name&quot;: &quot;AMAZON.YesIntent&quot;,
+  &quot;samples&quot;: [
+      &quot;yes&quot;,
+      &quot;yes please&quot;,
+      &quot;sure&quot;
+  ]
+},
+{
+  &quot;name&quot;: &quot;AMAZON.NoIntent&quot;,
+  &quot;samples&quot;: [
+      &quot;no&quot;,
+      &quot;no thanks&quot;
+  ]
+},
+</pre></div>
+</div>
+</li>
+<li><p>Click on <strong>Save Model</strong> on the top.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_5.png"><img alt="Skill Creation Screenshot 5" src="_images/colorcycler_skill_creation_screenshot_5.png" /></a>
+</li>
+</ul>
+</li>
+<li><p>On the left, click <strong>Endpoint</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_6.png"><img alt="Skill Creation Screenshot 6" src="_images/colorcycler_skill_creation_screenshot_6.png" /></a>
+</li>
+<li><p>Select <strong>AWS Lambda ARN</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_7.png"><img alt="Skill Creation Screenshot 7" src="_images/colorcycler_skill_creation_screenshot_7.png" /></a>
+</li>
+<li><p>Copy the skill ID.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_8.png"><img alt="Skill Creation Screenshot 8" src="_images/colorcycler_skill_creation_screenshot_8.png" /></a>
+</li>
+<li><p>Next, go back to your Lambda function in the <a class="reference external" href="https://console.aws.amazon.com/lambda/home">AWS Lambda Console</a>.</p></li>
+<li><p>In the AWS Lambda Console, on the left, under <strong>Add Triggers</strong>, select <strong>Alexa Skills Kit</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_9.png"><img alt="Skill Creation Screenshot 9" src="_images/colorcycler_skill_creation_screenshot_9.png" /></a>
+</li>
+<li><p>At the bottom of the screen, paste in the skill ID, and then click <strong>Add</strong>. Next.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_10.png"><img alt="Skill Creation Screenshot 10" src="_images/colorcycler_skill_creation_screenshot_10.png" /></a>
+</li>
+<li><p><strong>Save</strong> the Lambda.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_11.png"><img alt="Skill Creation Screenshot 11" src="_images/colorcycler_skill_creation_screenshot_11.png" /></a>
+</li>
+<li><p>At the top of the screen, copy the ARN.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_12.png"><img alt="Skill Creation Screenshot 12" src="_images/colorcycler_skill_creation_screenshot_12.png" /></a>
+</li>
+<li><p>Return to editing your skill in the <a class="reference external" href="https://developer.amazon.com/alexa/console/ask">Alexa Skills Kit Developer Console</a>.</p></li>
+<li><p>Within the <strong>Endpoint</strong> section, paste in the Lambda ARN from the function that you created, in the <strong>Default Region</strong> field under <strong>AWS Lambda ARN</strong>, and then click <strong>Save Endpoints</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_13.png"><img alt="Skill Creation Screenshot 13" src="_images/colorcycler_skill_creation_screenshot_13.png" /></a>
+</li>
+<li><p>On the left, select <strong>Interfaces</strong> and turn on the toggle for <em>Custom Interface Controller</em> to enable the skill to use Custom Interfaces.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_14.png"><img alt="Skill Creation Screenshot 14" src="_images/colorcycler_skill_creation_screenshot_14.png" /></a>
+</li>
+<li><p>Then, click on <strong>Save Interfaces</strong> at the top of the screen.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_15.png"><img alt="Skill Creation Screenshot 15" src="_images/colorcycler_skill_creation_screenshot_15.png" /></a>
+</li>
+<li><p>On the left, select <strong>Invocation</strong>. Then, at the top of the screen, click <strong>Build Model</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_16.png"><img alt="Skill Creation Screenshot 16" src="_images/colorcycler_skill_creation_screenshot_16.png" /></a>
+</li>
+<li><p>It will take a few seconds to build the model. A <em>Build Successful</em> message will be posted on the bottom right of the screen once the model is built successfully.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_creation_screenshot_17.png"><img alt="Skill Creation Screenshot 17" src="_images/colorcycler_skill_creation_screenshot_17.png" /></a>
+</li>
+</ol>
+</div>
+<div class="section" id="test-your-skill">
+<h3>Test your skill<a class="headerlink" href="#test-your-skill" title="Permalink to this headline">¶</a></h3>
+<p>At this point, it’s best to ensure that your skill is working before you move on. You can do this as follows:</p>
+<ol class="arabic">
+<li><p>In the <a class="reference external" href="https://developer.amazon.com/alexa/console/ask">Alexa Skills Kit Developer Console</a>, select your skill. Then, at the top, click <strong>Test</strong>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_test_screenshot_1.png"><img alt="Skill Test Screenshot 1" src="_images/colorcycler_skill_test_screenshot_1.png" /></a>
+</li>
+<li><p>Under the header, you will see a dropdown menu, click on it and select <em>Development</em>.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_test_screenshot_2.png"><img alt="Skill Test Screenshot 2" src="_images/colorcycler_skill_test_screenshot_2.png" /></a>
+</li>
+<li><p>You now have a few ways to test that your skill is working:</p>
+<ul>
+<li><p><strong>Using the Alexa Simulator in the Developer Console</strong>: If you are continuing from the previous step, you are already in the <strong>Test</strong> tab of your skill. Type in <em>‘Open Color Cycler’</em> and verify that the response comes back without an error. Alexa should respond indicating that no gadgets were found (since this is a simulator). You can also see the JSON for Alexa’s response.</p>
+<a class="reference external image-reference" href="_static/images/colorcycler_skill_test_screenshot_3.png"><img alt="Skill Test Screenshot 3" src="_images/colorcycler_skill_test_screenshot_3.png" /></a>
+</li>
+<li><p><strong>Using the Echo device that is paired to your gadget</strong>: Say <em>“Alexa, Open Color Cycler”</em>. If the gadget is connected, Alexa should respond with a welcome message describing the game and asking if you are ready. Else, Alexa will respond indicating that no gadgets were found.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="step-5-test-your-gadget">
+<h2>Step 5: Test your gadget<a class="headerlink" href="#step-5-test-your-gadget" title="Permalink to this headline">¶</a></h2>
+<p>In order for this gadget to function, it will need to be paired to a <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/overview-bluetooth-gadgets.html#device-bluetooth-support">compatible Echo device</a>. Before running the example, refer to the <a class="reference external" href="overview.html#pairing-your-gadget-to-an-echo-device">pairing guide</a> to learn how to pair your gadget.</p>
+<p>With your Echo device nearby, run the Python code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">example</span> <span class="n">color_cycler</span>
+</pre></div>
+</div>
+<p>Once your gadget paired/connected, ask Alexa:</p>
+<p><em>“Alexa, open Color Cycler”</em></p>
+<p>The gadget will receive the <code class="docutils literal notranslate"><span class="pre">BlinkLED</span></code> directive which will turn its LED to green, and Alexa will describe the game and ask you if you’re ready to play.</p>
+<p>If you answer <em>‘yes’</em>, the gadget will receive another <code class="docutils literal notranslate"><span class="pre">BlinkLED</span></code> directive to animate the LED to cycle through a list of colors. Press the button on the gadget within 10 seconds, and Alexa will respond with the color on the LED as a result of the <code class="docutils literal notranslate"><span class="pre">ReportColor</span></code> being sent from the gadget.</p>
+<p>If you don’t press the button within 10 seconds or if you answer <em>‘no’</em> to the initial prompt or at any time during the game you stop or cancel the skill, the gadget will receive a <code class="docutils literal notranslate"><span class="pre">StopLED</span></code> directive which will turn off the LED animation.</p>
+<div class="section" id="troubleshooting-color-cycler-gadget">
+<h3>Troubleshooting Color cycler gadget:<a class="headerlink" href="#troubleshooting-color-cycler-gadget" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>If upon opening the Color Cycler skill, Alexa says ‘No gadgets found.’, ensure that the color cycler gadget is connected successfully. If your gadget fails to connect, stop the Python script by pressing <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">C</span></code>, and run it again: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">python3</span> <span class="pre">launch.py</span> <span class="pre">--example</span> <span class="pre">color_cycler</span></code>.</p></li>
+<li><p>If the RGB LED doesn’t light up when the skill is launched, or if the reported color doesn’t match with the color on the RGB LED, ensure that the RGB LED is connected correctly by following the instructions in <strong>steps 2-6</strong> in <strong>Step 1: Connect the RGB LED and button to your Pi.</strong></p></li>
+<li><p>If pressing the button doesn’t make Alexa report the color, ensure that the button is connected correctly by following the instructions in <strong>steps 7-9</strong> in <strong>Step 5: Connect the RGB LED and button to your Pi.</strong></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>Now that you understand working with Custom Directives and Custom Events, you can alter this example or create a new Skill and Gadget code to build upon.</p>
+<p>To learn more about Alexa Gadgets Toolkit capabilities, <a class="reference external" href="https://developer.amazon.com/docs/alexa-gadgets-toolkit/features.html">review the documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kitchen_sink.html" class="btn btn-neutral float-right" title="Kitchen Sink Gadget Example" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="agt" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, alexa gadgets team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

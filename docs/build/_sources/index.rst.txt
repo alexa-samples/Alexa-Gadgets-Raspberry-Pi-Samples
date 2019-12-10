@@ -14,8 +14,8 @@ This is the Python API reference for the Alexa Gadgets Projects
    :caption: Projects
    :maxdepth: 1
 
-   Color Cycler <colorcycler>
-   Kitchen Sink <kitchensink>
+   Color Cycler <color_cycler>
+   Kitchen Sink <kitchen_sink>
    Wake Word <wakeword>
    Notification <notification>
    Timer <timer>

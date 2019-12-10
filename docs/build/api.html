@@ -13,40 +13,43 @@
 
   
   
-  
+
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
     
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Color Cycler Gadget" href="colorcycler.html" />
-    <link rel="prev" title="Alexa Gadgets Raspberry Pi Samples" href="overview.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Color Cycler Gadget" href="color_cycler.html"/>
+        <link rel="prev" title="Alexa Gadgets Raspberry Pi Samples" href="overview.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -81,18 +84,15 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+                <p class="caption"><span class="caption-text">Overview</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="colorcycler.html">Color Cycler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kitchensink.html">Kitchen Sink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_cycler.html">Color Cycler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kitchen_sink.html">Kitchen Sink</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wakeword.html">Wake Word</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notification.html">Notification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
@@ -107,52 +107,32 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>agt</li>
-    
-    
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>agt</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -160,15 +140,15 @@
             
   <div class="section" id="module-agt">
 <span id="agt"></span><h1>agt<a class="headerlink" href="#module-agt" title="Permalink to this headline">¶</a></h1>
-<p>The Alexa Gadgets Python API allows you to build fun and delightful accessories
-that pair to compatible Echo devices via Bluetooth. These accessories can
+<p>The Alexa Gadgets Toolkit Python API allows you to build fun and delightful accessories
+that pair to compatible Echo devices via Classic Bluetooth or Bluetooth Low Energy. These accessories can
 extend Alexa’s capabilities to new modalities with motors, lights, sound chips,
 and more.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">agt</span> <span class="kn">import</span> <span class="n">AlexaGadget</span>
 
 <span class="k">class</span> <span class="nc">MyFirstGadget</span><span class="p">(</span><span class="n">AlexaGadget</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">on_alexa_gadget_statelistener_stateupdate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directive</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;STATE UPDATED: &quot;</span><span class="p">,</span> <span class="n">directive</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STATE UPDATED: &quot;</span><span class="p">,</span> <span class="n">directive</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">MyFirstGadget</span><span class="p">()</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
@@ -177,7 +157,7 @@ and more.</p>
 <dl class="class">
 <dt id="agt.AlexaGadget">
 <em class="property">class </em><code class="sig-prename descclassname">agt.</code><code class="sig-name descname">AlexaGadget</code><span class="sig-paren">(</span><em class="sig-param">gadget_config_path=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget" title="Permalink to this definition">¶</a></dt>
-<dd><p>An Alexa-connected accessory that interacts with an Amazon Echo device over Bluetooth.</p>
+<dd><p>An Alexa-connected accessory that interacts with an Amazon Echo device over Classic Bluetooth or Bluetooth Low Energy.</p>
 <dl class="method">
 <dt id="agt.AlexaGadget.main">
 <code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/agt/alexa_gadget.html#AlexaGadget.main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#agt.AlexaGadget.main" title="Permalink to this definition">¶</a></dt>
@@ -331,16 +311,15 @@ with for the following directives:</p>
 
 
            </div>
-           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="colorcycler.html" class="btn btn-neutral float-right" title="Color Cycler Gadget" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="color_cycler.html" class="btn btn-neutral float-right" title="Color Cycler Gadget" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="overview.html" class="btn btn-neutral float-left" title="Alexa Gadgets Raspberry Pi Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral" title="Alexa Gadgets Raspberry Pi Samples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -349,11 +328,11 @@ with for the following directives:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, alexa gadgets team
+        &copy; Copyright 2019, alexa gadgets team.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -366,15 +345,36 @@ with for the following directives:</p>
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

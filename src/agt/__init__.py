@@ -7,8 +7,8 @@
 #
 
 """
-The Alexa Gadgets Python API allows you to build fun and delightful accessories
-that pair to compatible Echo devices via Bluetooth. These accessories can
+The Alexa Gadgets Toolkit Python API allows you to build fun and delightful accessories
+that pair to compatible Echo devices via Classic Bluetooth or Bluetooth Low Energy. These accessories can
 extend Alexa’s capabilities to new modalities with motors, lights, sound chips,
 and more.
 

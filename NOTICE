@@ -24,10 +24,25 @@ The following example gadgets are licensed under the Amazon Software License in 
 THIRD PARTY COMPONENTS
 ***********************
 
-This software includes third party software subject to the following
-copyrights:
+The Alexa Gadgets Raspberry Pi launch script provided herein will retrieve several third-party libraries,
+environments, and/or other software packages at install-time or build-time ("External Dependencies") from third-party
+sources. There are terms and conditions
+that you need to agree to abide by if you choose to install the External Dependencies.  If you do not agree with every term
+and condition associated with the External Dependencies, enter “QUIT” in the command line when prompted by the launch script.
+Provided below is a list of the External Dependencies as of Amazon's most recent review of such documentation.
 
+THIS INFORMATION IS PROVIDED FOR CONVENIENCE ONLY. AMAZON DOES NOT PROMISE THAT THE LIST OR THE APPLICABLE TERMS AND
+CONDITIONS ARE COMPLETE, ACCURATE, OR UP-TO-DATE, AND AMAZON WILL HAVE NO LIABILITY FOR ANY INACCURACIES. YOU SHOULD
+CONSULT THE DOWNLOAD SITES FOR THE EXTERNAL DEPENDENCIES FOR THE MOST COMPLETE AND UP-TO-DATE LICENSING INFORMATION.
+YOUR USE OF THE EXTERNAL DEPENDENCIES IS AT YOUR SOLE RISK. IN NO EVENT WILL AMAZON BE LIABLE FOR ANY DAMAGES,
+INCLUDING WITHOUT LIMITATION ANY DIRECT, INDIRECT, CONSEQUENTIAL, SPECIAL, INCIDENTAL, OR PUNITIVE DAMAGES (INCLUDING
+FOR ANY LOSS OF GOODWILL, BUSINESS INTERRUPTION, LOST PROFITS OR DATA, OR COMPUTER FAILURE OR MALFUNCTION) ARISING FROM
+OR RELATING TO THE EXTERNAL DEPENDENCIES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, EVEN IF AMAZON HAS
+BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THESE LIMITATIONS AND DISCLAIMERS APPLY EXCEPT TO THE EXTENT PROHIBITED
+BY APPLICABLE LAW.
+
+- Bluez 5.50 - GNU GENERAL PUBLIC LICENSE Version 2 - Copyright (C) 1989, 1991 Free Software Foundation, Inc.
 - Protobuf (Protocol Buffers) - Google's data interchange format - Copyright 2008 Google Inc.
 - Sphinx documentation builder - Copyright (c) 2007-2019 by the Sphinx team.
 - gpiozero - an interface for GPIO devices with Raspberry Pi - Copyright © 2015-2019 Ben Nuttall <ben@raspberrypi.org> and contributors.
-- colorzero - a color manipulation library for Python- Copyright 2016-2018 Dave Jones.
+- colorzero - a color manipulation library for Python - Copyright 2016-2018 Dave Jones.

@@ -13,38 +13,42 @@
 
   
   
-  
+
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
     
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Alexa-Gadgets-Raspberry-Pi-Samples 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
@@ -79,18 +83,15 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Overview</span></p>
+                <p class="caption"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">Python API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../colorcycler.html">Color Cycler</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../kitchensink.html">Kitchen Sink</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../color_cycler.html">Color Cycler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kitchen_sink.html">Kitchen Sink</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../wakeword.html">Wake Word</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../notification.html">Notification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../timer.html">Timer</a></li>
@@ -105,52 +106,34 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
-        
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Alexa-Gadgets-Raspberry-Pi-Samples</a>
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
           <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-      <li>agt.alexa_gadget</li>
-    
-    
+      
+    <li>agt.alexa_gadget</li>
       <li class="wy-breadcrumbs-aside">
         
+          
+        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -174,13 +157,14 @@
 <span class="kn">import</span> <span class="nn">signal</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
-<span class="kn">from</span> <span class="nn">threading</span> <span class="k">import</span> <span class="n">Thread</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
 
-<span class="kn">from</span> <span class="nn">google.protobuf</span> <span class="k">import</span> <span class="n">json_format</span>
+<span class="kn">from</span> <span class="nn">google.protobuf</span> <span class="kn">import</span> <span class="n">json_format</span>
 
 <span class="kn">import</span> <span class="nn">agt.messages_pb2</span> <span class="k">as</span> <span class="nn">proto</span>
-<span class="kn">from</span> <span class="nn">agt.bluetooth</span> <span class="k">import</span> <span class="n">BluetoothAdapter</span>
+<span class="kn">from</span> <span class="nn">agt.bt_classic.adapter</span> <span class="kn">import</span> <span class="n">BluetoothAdapter</span>
+<span class="kn">from</span> <span class="nn">agt.ble.adapter</span> <span class="kn">import</span> <span class="n">BluetoothLEAdapter</span>
 
 <span class="n">global_config_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))),</span> <span class="s1">&#39;.agt.json&#39;</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -188,6 +172,7 @@
 <span class="c1"># ------------------------------------------------</span>
 <span class="c1"># Global Gadget Configuration constants</span>
 <span class="n">_ECHO_BLUETOOTH_ADDRESS</span> <span class="o">=</span> <span class="s1">&#39;echoBluetoothAddress&#39;</span>
+<span class="n">_TRANSPORT_MODE</span> <span class="o">=</span>  <span class="s1">&#39;transportMode&#39;</span>
 <span class="c1"># ------------------------------------------------</span>
 
 <span class="c1"># ------------------------------------------------</span>
@@ -215,20 +200,22 @@
 <span class="n">_DEFAULT_MANUFACTURER_NAME</span> <span class="o">=</span> <span class="s1">&#39;AGT&#39;</span>
 <span class="n">_DEFAULT_DESCRIPTION</span> <span class="o">=</span> <span class="s1">&#39;Alexa Gadget&#39;</span>
 
-
+<span class="c1"># Transport modes</span>
+<span class="n">BLE</span> <span class="o">=</span> <span class="s2">&quot;BLE&quot;</span>
+<span class="n">BT</span> <span class="o">=</span> <span class="s2">&quot;BT&quot;</span>
 <span class="c1"># ------------------------------------------------</span>
 
 
 <div class="viewcode-block" id="AlexaGadget"><a class="viewcode-back" href="../../api.html#agt.AlexaGadget">[docs]</a><span class="k">class</span> <span class="nc">AlexaGadget</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    An Alexa-connected accessory that interacts with an Amazon Echo device over Bluetooth.</span>
+<span class="sd">    An Alexa-connected accessory that interacts with an Amazon Echo device over Classic Bluetooth or Bluetooth Low Energy.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gadget_config_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gadget_config_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize gadget.</span>
 
-<span class="sd">        :param gadget_config_path: (Optional) Path to your Alexa Gadget Configution .ini file. If you don&#39;t pass this in</span>
+<span class="sd">        :param gadget_config_path: (Optional) Path to your Alexa Gadget Configuration .ini file. If you don&#39;t pass this in</span>
 <span class="sd">        then make sure you have created a file with the same prefix as your .py file and &#39;.ini&#39; as the suffix.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -240,14 +227,32 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_read_peer_device_bt_address</span><span class="p">()</span>
 
         <span class="c1"># Get the radio address</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">radio_address</span> <span class="o">=</span> <span class="n">BluetoothAdapter</span><span class="o">.</span><span class="n">get_address</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_read_transport_mode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span> <span class="o">==</span> <span class="n">BT</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">radio_address</span> <span class="o">=</span> <span class="n">BluetoothAdapter</span><span class="o">.</span><span class="n">get_address</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span> <span class="o">==</span> <span class="n">BLE</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">radio_address</span> <span class="o">=</span> <span class="n">BluetoothLEAdapter</span><span class="o">.</span><span class="n">get_address</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid transport mode found in the config.&#39;</span>
+                            <span class="s1">&#39;Please run the launch.py script with the --setup flag again &#39;</span>
+                            <span class="s1">&#39;to re-configure the transport mode.&#39;</span><span class="p">)</span>
 
         <span class="c1"># Check to make sure deviceType (amazonId) and deviceTypeSecret (alexaGadgetSecret) have been configured</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value_from_config</span><span class="p">(</span><span class="n">_GADGET_SETTINGS</span><span class="p">,</span> <span class="n">_AMAZON_ID</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span><span class="p">:</span>
+            <span class="c1"># if &#39;amazonId&#39; is not specified, check for presence of &#39;deviceType&#39; instead</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value_from_config</span><span class="p">(</span><span class="n">_GADGET_SETTINGS</span><span class="p">,</span> <span class="s1">&#39;deviceType&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Using deprecated deviceType in configuration. Please update your .ini to use &#39;</span> <span class="o">+</span> <span class="n">_AMAZON_ID</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span> <span class="o">==</span> <span class="s1">&#39;YOUR_GADGET_AMAZON_ID&#39;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Please specify your &#39;</span> <span class="o">+</span> <span class="n">_AMAZON_ID</span> <span class="o">+</span> <span class="s1">&#39; in &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">gadget_config_path</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">device_type_secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value_from_config</span><span class="p">(</span><span class="n">_GADGET_SETTINGS</span><span class="p">,</span> <span class="n">_ALEXA_GADGET_SECRET</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type_secret</span><span class="p">:</span>
+            <span class="c1"># if &#39;alexaGadgetSecret&#39; is not specified, check for presence of &#39;deviceTypeSecret&#39; instead </span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">device_type_secret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_value_from_config</span><span class="p">(</span><span class="n">_GADGET_SETTINGS</span><span class="p">,</span> <span class="s1">&#39;deviceTypeSecret&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type_secret</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Using deprecated deviceTypeSecret in configuration. Please update your .ini to use &#39;</span> <span class="o">+</span> <span class="n">_ALEXA_GADGET_SECRET</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type_secret</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type_secret</span> <span class="o">==</span> <span class="s1">&#39;YOUR_GADGET_SECRET&#39;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Please specify your &#39;</span> <span class="o">+</span> <span class="n">_ALEXA_GADGET_SECRET</span> <span class="o">+</span> <span class="s1">&#39; in &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">gadget_config_path</span><span class="p">)</span>
 
@@ -273,14 +278,25 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">product_id</span><span class="p">:</span>
             <span class="n">product_id</span> <span class="o">=</span> <span class="n">_DEFAULT_VENDOR_ID</span>
 
-        <span class="c1"># Initialize the BluetoothAdapter object</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span> <span class="o">=</span> <span class="n">BluetoothAdapter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">friendly_name</span><span class="p">,</span> <span class="n">vendor_id</span><span class="p">,</span> <span class="n">product_id</span><span class="p">,</span>
-                                       <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_data_received</span><span class="p">,</span>
-                                       <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_connected</span><span class="p">,</span>
-                                       <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_disconnected</span><span class="p">)</span>
+        <span class="c1"># Initialize the Transport Adapter object</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span> <span class="o">==</span> <span class="n">BT</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span> <span class="o">=</span> <span class="n">BluetoothAdapter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">friendly_name</span><span class="p">,</span> <span class="n">vendor_id</span><span class="p">,</span> <span class="n">product_id</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_data_received</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_connected</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_disconnected</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span> <span class="o">==</span> <span class="n">BLE</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span> <span class="o">=</span> <span class="n">BluetoothLEAdapter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">friendly_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_type</span><span class="p">,</span>
+                                                 <span class="n">vendor_id</span><span class="p">,</span> <span class="n">product_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_data_received</span><span class="p">,</span>
+                                                 <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_connected</span><span class="p">,</span>
+                                                 <span class="bp">self</span><span class="o">.</span><span class="n">_on_bluetooth_disconnected</span><span class="p">)</span>
 
         <span class="c1"># enable auto reconnect, by default</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_reconnect_status</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+        <span class="c1"># flag for ensuring keyboard interrupt is only handled once</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_keyboard_interrupt_being_handled</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># register an interrupt handler to catch &#39;CTRL + C&#39;</span>
+        <span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keyboard_interrupt_handler</span><span class="p">)</span>
 
 <div class="viewcode-block" id="AlexaGadget.main"><a class="viewcode-back" href="../../api.html#agt.AlexaGadget.main">[docs]</a>    <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -302,13 +318,17 @@
         <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">clear</span><span class="p">:</span>
             <span class="c1"># in addition to this, also unpair using bt adapter</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">unpair</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">unpair</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">pass</span>
                 <span class="c1"># delete peer address in memory</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span> <span class="o">=</span> <span class="kc">None</span>
                 <span class="c1"># delete peer address in config file</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_write_peer_device_bt_address</span><span class="p">()</span>
 
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Successfully unpaired with Echo device.&#39;</span> <span class="o">+</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Successfully unpaired with Echo device over </span><span class="si">{}</span><span class="s1">.&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span><span class="p">)</span> <span class="o">+</span>
             <span class="s1">&#39; Please also forget the gadget from the Echo device using the Bluetooth menu in Alexa App or Echo</span><span class="se">\&#39;</span><span class="s1">s screen.&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">pair</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;To put the gadget in pairing mode again, use --pair&#39;</span><span class="p">)</span>
@@ -326,17 +346,12 @@
             <span class="c1"># Set discoverable if bluetooth address is not in the configuration file.</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_paired</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">set_discoverable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Now in pairing mode. Pair &quot;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">friendly_name</span> <span class="o">+</span> <span class="s1">&#39;&quot; in the Alexa App.&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Now in pairing mode over </span><span class="si">{}</span><span class="s1">. Pair </span><span class="si">{}</span><span class="s1"> in the Alexa App.&#39;</span>
+                            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">friendly_name</span><span class="p">))</span>
 
-            <span class="c1"># wait for the ctrl-c</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="c1"># current BT implementation requires event loop on mainthread</span>
-                <span class="c1"># if event loop no longer required, block on signal.pause()</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-                <span class="c1"># if we are in pairing mode, we should exit</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">set_discoverable</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Caught keyboard interrupt, exiting main()&#39;</span><span class="p">)</span></div>
+            <span class="c1"># current BT implementation requires event loop on mainthread</span>
+            <span class="c1"># if event loop no longer required, block on signal.pause()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="AlexaGadget.start"><a class="viewcode-back" href="../../api.html#agt.AlexaGadget.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -579,7 +594,8 @@
                 <span class="n">rs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reconnect_status</span>
                 <span class="k">if</span> <span class="n">rs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">rs</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                        <span class="s1">&#39;Attempting to reconnect to Echo device with address: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span><span class="p">))</span>
+                        <span class="s1">&#39;Attempting to reconnect to Echo device with address </span><span class="si">{}</span><span class="s1"> over </span><span class="si">{}</span><span class="s1">&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span><span class="p">))</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">reconnect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">rs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">_reconnect_status</span> <span class="o">=</span> <span class="p">(</span><span class="n">rs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
@@ -593,7 +609,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bluetooth connected.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Connected to Echo device with address: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bt_addr</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Connected to Echo device with address </span><span class="si">{}</span><span class="s1"> over </span><span class="si">{}</span><span class="s1">&#39;</span>
+                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bt_addr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span><span class="p">))</span>
 
         <span class="c1"># Turn off pairing mode if it was enabled.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_discoverable</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -616,7 +633,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bluetooth disconnected.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Disconnected from Echo device with address: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bt_addr</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Disconnected from Echo device with address </span><span class="si">{}</span><span class="s1"> over </span><span class="si">{}</span><span class="s1">&#39;</span>
+                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bt_addr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span><span class="p">))</span>
 
         <span class="c1"># call the callback.</span>
         <span class="k">try</span><span class="p">:</span>
@@ -690,6 +708,18 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gadget_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">option</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span>
 
+    <span class="k">def</span> <span class="nf">_read_transport_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reads the transport mode with which gadget is configured</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">global_config_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_transport_mode</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_TRANSPORT_MODE</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Transport mode is not configured for the gadget.&#39;</span>
+                            <span class="s1">&#39;Please run the launch.py script with the --setup flag.&#39;</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">_read_peer_device_bt_address</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads the bluetooth address of the paired Echo device from disk</span>
@@ -705,8 +735,10 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Writes the bluetooth address of the paired Echo device to disk</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">_ECHO_BLUETOOTH_ADDRESS</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span><span class="p">}</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">global_config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">global_config_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">global_config_path</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">_ECHO_BLUETOOTH_ADDRESS</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peer_device_bt_addr</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">write_file</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_generate_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">device_token</span><span class="p">):</span>
@@ -715,11 +747,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">hash_object</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">device_id</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">device_token</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
         <span class="n">hex_dig</span> <span class="o">=</span> <span class="n">hash_object</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">hex_dig</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_keyboard_interrupt_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keyboard_interrupt_being_handled</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keyboard_interrupt_being_handled</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">set_discoverable</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_bluetooth</span><span class="o">.</span><span class="n">stop_server</span><span class="p">()</span></div>
 </pre></div>
 
            </div>
-           
           </div>
           <footer>
   
@@ -728,11 +765,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, alexa gadgets team
+        &copy; Copyright 2019, alexa gadgets team.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -745,15 +782,36 @@
   
 
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>

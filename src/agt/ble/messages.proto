@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+import "google/protobuf/descriptor.proto";
+
+package ble;
+
+enum Transport {
+    BLUETOOTH_LOW_ENERGY = 0;
+}
+
+enum ErrorCode {
+    SUCCESS = 0;
+    UNKNOWN = 1;
+    INTERNAL = 2;
+    UNSUPPORTED = 3;
+}
+
+enum Command {
+    NONE = 0;
+    GET_DEVICE_INFORMATION = 20;
+    GET_DEVICE_FEATURES = 28;
+}
+
+message ControlEnvelope {
+    Command command = 1;
+
+    oneof payload {
+        Response response = 9;
+        GetDeviceInformation get_device_information = 20;
+        GetDeviceFeatures get_device_features = 28;
+    }
+}
+
+message GetDeviceInformation {
+}
+
+message GetDeviceFeatures {
+}
+
+message Response {
+    ErrorCode error_code = 1;
+
+    oneof payload {
+        FirmwareComponent firmware_component = 2;
+        DeviceInformation device_information = 3;
+        DeviceFeatures device_features = 28;
+        FirmwareInformation firmware_information = 5;
+    }
+}
+
+message DeviceInformation {
+    string serial_number = 1;
+    string name = 2;
+    repeated Transport supported_transports = 3;
+    string device_type = 4;
+}
+
+message DeviceFeatures {
+    uint64 features = 1;
+    uint64 device_attributes = 2;
+}
+
+message FirmwareInformation {
+    uint32 version = 1;
+    string name = 2;
+    repeated FirmwareComponent components = 3;
+    string locale = 4;
+    string version_name = 5;
+}
+
+message FirmwareComponent {
+    uint32 version = 1;
+    string name = 2;
+
+    //optional when part of a FirmwareInformation
+    uint32 size = 3; //in bytes
+    string signature = 4; //SHA-256 encoded Base64
+}
