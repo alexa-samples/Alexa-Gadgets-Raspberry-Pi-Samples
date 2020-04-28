@@ -2,10 +2,6 @@
   "manifest": {
     "apis": {
       "custom": {
-        "endpoint": {
-          "sourceDir": "lambda/custom",
-          "uri": "agt-colorcycler-skill"
-        },
         "interfaces": [
           {
             "type": "CUSTOM_INTERFACE"
