@@ -154,7 +154,7 @@ if first_time_setup or not cache['bluez'].is_installed or \
     subprocess.run("sudo rm -rf {}*".format(bluez_folder_path), shell=True)
 
 # purge A2DP profile to improve connectivity stability
-if cache['bluealsa'].is_installed:
+if 'bluealsa' in cache and cache['bluealsa'].is_installed:
     cache['bluealsa'].mark_delete(purge=True)
     try:
         cache.commit()
